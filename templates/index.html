@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ config.title }}</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<h1>Artificial Life Research</h1>
+
+<p>研究ログ</p>
+
+<ul>
+    {% set section = get_section(path="research/_index.md") %}
+
+    {% for page in section.pages %}
+        <li>
+            <a href="{{ page.permalink }}">
+                {{ page.title }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>
