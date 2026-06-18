@@ -1,0 +1,27 @@
+{% import "macros.html" as macros %}
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Topics — {{ config.title }}</title>
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+    <body>
+        <main class="home-wrap">
+            {{ macros::site_header(lang="ja") }}
+
+            <section class="home-section">
+                <h1 class="section-label">Topics</h1>
+                <div class="topic-index">
+                    {% for term in terms %}
+                    <a class="topic-row" href="{{ term.permalink }}">
+                        <span class="topic-name">{{ term.name }}</span>
+                        <span class="topic-count">{{ term.pages | length }} post{% if term.pages | length != 1 %}s{% endif %}</span>
+                    </a>
+                    {% endfor %}
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

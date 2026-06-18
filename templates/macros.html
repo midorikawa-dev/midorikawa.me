@@ -1,0 +1,18 @@
+{% macro site_header(lang="ja", switch_url="") %}
+<header class="site-header">
+    <div class="site-header-top">
+        <a class="site-name" href="{% if lang == "en" %}/en/{% else %}/{% endif %}">M*2</a>
+        <nav class="site-nav-links">
+            <a href="{% if lang == "en" %}/en/research/{% else %}/research/{% endif %}">Research</a>
+            <a href="/topics/">Topics</a>
+            <span class="header-language">
+                {% if lang == "en" %}
+                <a href="{% if switch_url %}{{ switch_url }}{% else %}/{% endif %}">JP</a><span>EN</span>
+                {% else %}
+                <span>JP</span><a href="{% if switch_url %}{{ switch_url }}{% else %}/en/{% endif %}">EN</a>
+                {% endif %}
+            </span>
+        </nav>
+    </div>
+</header>
+{% endmacro site_header %}

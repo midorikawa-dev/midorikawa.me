@@ -1,0 +1,32 @@
+{% import "macros.html" as macros %}
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{{ term.name }} — {{ config.title }}</title>
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+    <body>
+        <main class="home-wrap">
+            {{ macros::site_header(lang="ja") }}
+
+            <section class="home-section">
+                <div class="section-head">
+                    <h1 class="section-label">{{ term.name }}</h1>
+                    <a class="view-all" href="/topics/">← all topics</a>
+                </div>
+                <div class="post-list">
+                    {% for page in term.pages %}
+                    <a class="post-row" href="{{ page.path }}">
+                        <span class="post-main">
+                            <span class="post-title">{{ page.title }}</span>
+                        </span>
+                        <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
+                    </a>
+                    {% endfor %}
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

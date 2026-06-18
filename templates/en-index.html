@@ -1,6 +1,6 @@
 {% import "macros.html" as macros %}
 <!doctype html>
-<html lang="ja">
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,16 +8,16 @@
         <link rel="stylesheet" href="/css/style.css" />
     </head>
     <body>
-        {% set research = get_section(path="research/_index.md") %}
+        {% set research = get_section(path="en/research/_index.md") %}
         {% set topics = get_taxonomy(kind="topics") %}
         <main class="home-wrap">
-            {{ macros::site_header(lang="ja") }}
-            <p class="site-bio">Mao Midorikawa。ソフトウェア開発者。コードで生命・学習・社会・物理現象の最小モデルを作っています。</p>
+            {{ macros::site_header(lang="en") }}
+            <p class="site-bio">Mao Midorikawa. Software developer building executable minimal models of life, learning, society, and physical phenomena.</p>
 
             <section class="home-section">
                 <div class="section-head">
                     <h2 class="section-label">Recent Topics</h2>
-                    <a class="view-all" href="/topics/">view all →</a>
+                    <a class="view-all" href="/topics/">view all -></a>
                 </div>
                 <div class="topic-index">
                     {% for topic in topics.items | slice(end=5) %}
@@ -32,7 +32,7 @@
             <section class="home-section">
                 <div class="section-head">
                     <h2 class="section-label">Recent Writing</h2>
-                    <a class="view-all" href="/research/">view all →</a>
+                    <a class="view-all" href="/en/research/">view all -></a>
                 </div>
                 <div class="post-list">
                     {% for page in research.pages | slice(end=5) %}

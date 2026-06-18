@@ -1,0 +1,36 @@
+{% import "macros.html" as macros %}
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{{ section.title }} — {{ config.title }}</title>
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+    <body>
+        {% set section_lang = "ja" %}
+        {% if section.path and section.path is starting_with("/en/") %}
+        {% set_global section_lang = "en" %}
+        {% endif %}
+        <main class="home-wrap">
+            {{ macros::site_header(lang=section_lang) }}
+
+            <section class="home-section">
+                <h1 class="section-label">{{ section.title }}</h1>
+                <div class="post-list">
+                    {% for page in section.pages %}
+                    <a class="post-row" href="{{ page.path }}">
+                        <span class="post-main">
+                            <span class="post-title">{{ page.title }}</span>
+                            {% if page.taxonomies.topics %}
+                            <span class="post-topic">{{ page.taxonomies.topics | first }}</span>
+                            {% endif %}
+                        </span>
+                        <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
+                    </a>
+                    {% endfor %}
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
