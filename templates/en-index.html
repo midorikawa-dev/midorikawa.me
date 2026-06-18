@@ -5,14 +5,17 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{{ config.title }}</title>
+        {{ macros::favicon_links() }} {{ macros::font_links() }}
         <link rel="stylesheet" href="/css/style.css" />
     </head>
     <body>
-        {% set research = get_section(path="en/research/_index.md") %}
-        {% set topics = get_taxonomy(kind="topics") %}
+        {% set research = get_section(path="en/research/_index.md") %} {% set
+        topics = get_taxonomy(kind="topics") %}
         <main class="home-wrap">
             {{ macros::site_header(lang="en") }}
-            <p class="site-bio">Mao Midorikawa. Software developer building executable minimal models of life, learning, society, and physical phenomena.</p>
+            <p class="site-bio">
+                Exploring life, learning, society, and physics through code.
+            </p>
 
             <section class="home-section">
                 <div class="section-head">
@@ -21,9 +24,17 @@
                 </div>
                 <div class="topic-index">
                     {% for topic in topics.items | slice(end=5) %}
+                    {% set_global topic_count = 0 %}
+                    {% for topic_page in topic.pages %}
+                    {% if topic_page.extra.lang == "en" %}
+                    {% set_global topic_count = topic_count + 1 %}
+                    {% endif %}
+                    {% endfor %}
                     <a class="topic-row" href="{{ topic.permalink }}">
                         <span class="topic-name">{{ topic.name }}</span>
-                        <span class="topic-count">{{ topic.pages | length }} post{% if topic.pages | length != 1 %}s{% endif %}</span>
+                        <span class="topic-count"
+                            >{{ topic_count }} post{% if topic_count != 1 %}s{% endif %}</span
+                        >
                     </a>
                     {% endfor %}
                 </div>
@@ -35,18 +46,27 @@
                     <a class="view-all" href="/en/research/">view all -></a>
                 </div>
                 <div class="post-list">
-                    {% for page in research.pages | slice(end=5) %}
+                    {% for page in research.pages | reverse | slice(end=5) %}
                     <a class="post-row" href="{{ page.path }}">
                         <span class="post-main">
-                            <span class="post-title">{{ page.title }}</span>
-                            {% if page.taxonomies.topics %}
-                            <span class="post-topic">{{ page.taxonomies.topics | first }}</span>
+                            <span class="post-title">{{ macros::numbered_title(title=page.title) }}</span>
+                            {% set page_topics = page.taxonomies.topics | default(value=[]) %}
+                            {% set page_series = page.taxonomies.series | default(value=[]) %}
+                            {% if page_topics or page_series %}
+                            <span class="post-topic"
+                                >{% if page_topics %}{{ page_topics | first }}{% endif %}{% if page_topics and page_series %} / {% endif %}{% if page_series %}{{ page_series | first }}{% endif %}</span
+                            >
                             {% endif %}
                         </span>
                         <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
                     </a>
                     {% endfor %}
                 </div>
+            </section>
+
+            <section class="home-section connect-section">
+                <h2 class="section-label">Connect</h2>
+                <p>Reach me at hello [at] midorikawa.me.</p>
             </section>
         </main>
     </body>

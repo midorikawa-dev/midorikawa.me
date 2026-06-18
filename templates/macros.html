@@ -1,10 +1,13 @@
 {% macro site_header(lang="ja", switch_url="") %}
 <header class="site-header">
     <div class="site-header-top">
-        <a class="site-name" href="{% if lang == "en" %}/en/{% else %}/{% endif %}">M*2</a>
+        <a class="site-name" href="{% if lang == "en" %}/en/{% else %}/{% endif %}">
+            <span class="brand-m">M</span><span class="brand-star">*</span><span class="brand-two">2</span>
+        </a>
         <nav class="site-nav-links">
-            <a href="{% if lang == "en" %}/en/research/{% else %}/research/{% endif %}">Research</a>
+            <a href="{% if lang == "en" %}/en/research/{% else %}/research/{% endif %}">Notes</a>
             <a href="/topics/">Topics</a>
+            <a href="/series/">Series</a>
             <span class="header-language">
                 {% if lang == "en" %}
                 <a href="{% if switch_url %}{{ switch_url }}{% else %}/{% endif %}">JP</a><span>EN</span>
@@ -16,3 +19,22 @@
     </div>
 </header>
 {% endmacro site_header %}
+
+{% macro font_links() %}
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+{% endmacro font_links %}
+
+{% macro favicon_links() %}
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+{% endmacro favicon_links %}
+
+{% macro numbered_title(title) %}
+{% if title is containing(". ") %}
+{% set title_parts = title | split(pat=". ", limit=2) %}
+<span class="title-number">{{ title_parts[0] }}.</span>{{ title_parts[1] }}
+{% else %}
+{{ title }}
+{% endif %}
+{% endmacro numbered_title %}

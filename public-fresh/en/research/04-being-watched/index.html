@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>04. Being Watched — Midorikawa Lab</title>
+        
+        
+        <link rel="alternate" hreflang="en" href="https:&#x2F;&#x2F;midorikawa.me&#x2F;en&#x2F;research&#x2F;04-being-watched&#x2F;" />
+        <link rel="alternate" hreflang="ja" href="https://midorikawa.me/research/04-being-watched" />
+        
+        
+        
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+        
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+    <body>
+        <main class="article-wrap">
+            
+            
+            
+<header class="site-header">
+    <div class="site-header-top">
+        <a class="site-name" href="/en/">M*2</a>
+        <nav class="site-nav-links">
+            <a href="/en/research/">Research</a>
+            <a href="/topics/">Topics</a>
+            <span class="header-language">
+                
+                <a href="&#x2F;research&#x2F;04-being-watched&#x2F;">JP</a><span>EN</span>
+                
+            </span>
+        </nav>
+    </div>
+</header>
+
+
+            <article class="article">
+                <header class="article-header">
+                    
+                    <div class="article-topics">
+                        
+                        <a href="https://midorikawa.me/topics/ai-research/">AI Research</a>
+                        
+                    </div>
+                    
+
+                    <h1>04. Being Watched</h1>
+
+                    <div class="article-meta">
+                        
+                        <time datetime="2026-06-18">2026-06-18</time>
+                        
+                    </div>
+
+                    
+                    <p class="article-description">Free-riding, reputation, and the maintenance of cooperation in an artificial rat colony</p>
+                    
+
+                </header>
+
+                <div class="article-body">
+                    <h2 id="overview">Overview</h2>
+<p>In the previous note, shared tags turned non-kin into companions and widened cooperation beyond kin.</p>
+<p>But that still leaves another problem.</p>
+<p>Some individuals may receive help without helping others.</p>
+<p>Helpers pay a cost. Free-riders avoid that cost and still receive the benefit. If such individuals spread, cooperation breaks from the inside.</p>
+<p>This note treats being watched, reputation, and evaluation after death.</p>
+<p>The word god appears here, but not as a claim about an entity or a belief. It is used as a social function: being watched everywhere, being caught when cheating, and having one's reputation continue after death.</p>
+<h2 id="question">Question</h2>
+<p>How is cooperation maintained?</p>
+<p>In the previous models, help could reach non-kin. Transmission of social competence became easier to preserve, and the colony became less likely to collapse.</p>
+<p>But cooperation has a free-rider problem.</p>
+<p>An individual receives help, but does not help others. It avoids the cost of helping. In the short term, that individual can do better.</p>
+<p>If such individuals spread, only the helpers pay the cost, and cooperation cannot be maintained.</p>
+<p>What suppresses free-riding?</p>
+<p>Here, I use monitoring and reputation.</p>
+<p>If an individual is watched, cheating can be detected. If it is detected, the individual receives less help and suffers a reproductive penalty.</p>
+<p>Then cheating no longer pays.</p>
+<h2 id="free-riders">Free-Riders</h2>
+<p>I added cooperating individuals and free-riding individuals to the model.</p>
+<p>A cooperator helps others when the conditions match. It pays time and reproductive opportunity as a cost.</p>
+<p>A free-rider receives help, but does not give help.</p>
+<p>From the viewpoint of one individual, this can be advantageous.</p>
+<p>It gets the benefit of help without paying the cost.</p>
+<p>The question is whether that behavior damages the colony as a whole.</p>
+<p>If cooperators decrease, offspring have fewer opportunities to learn. The transmission of social competence weakens. The colony moves closer to collapse again.</p>
+<h2 id="being-watched">Being Watched</h2>
+<p>I then changed how likely cheating was to be detected.</p>
+<p>No monitoring.</p>
+<p>Cheating is never detected. Free-riders keep receiving help while paying no cost.</p>
+<p>Local monitoring.</p>
+<p>If cooperators are nearby, cheating is more likely to be detected. But if no one is nearby, it can go unseen.</p>
+<p>Being watched everywhere.</p>
+<p>Cheating is detected with high probability regardless of who is nearby.</p>
+<p>This last condition is called god in the model. It does not mean a deity as an entity. It means the function of an observer who can see everywhere.</p>
+<h2 id="intervention">Intervention</h2>
+<p>The intervention is small.</p>
+<p>The physical apparatus is the same. The shared tags are the same. The helping behaviors are the same. What changes is how likely cheating is to be detected.</p>
+<p>The relation can be read like this.</p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="plain"><span class="giallo-l"><span>gain from cheating = benefit received - penalty if caught</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>the easier cheating is to detect, the less it pays</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>cheating decreases</span></span>
+<span class="giallo-l"><span>-&gt; cooperation remains</span></span>
+<span class="giallo-l"><span>-&gt; offspring keep chances to learn</span></span>
+<span class="giallo-l"><span>-&gt; collapse becomes less likely</span></span></code></pre>
+<p>I also added a condition where reputation continues after death.</p>
+<p>If reputation matters only while alive, old individuals may defect near the end of life. They have little future to lose.</p>
+<p>If reputation continues after death, even old individuals have less reason to defect.</p>
+<h2 id="result">Result</h2>
+<p>Without monitoring, free-riders spread.</p>
+<p>The fraction of cooperators decreased, and free-riding entered the colony.</p>
+<p>Local monitoring helped to some extent. The cooperator fraction increased. But as the colony grew and individuals spread across space, fewer cooperators were nearby to watch. Cheating became easier to miss.</p>
+<p>Under the always-watched condition, cooperation was maintained more strongly.</p>
+<p>In this model, the cooperator fraction was roughly 0.47 with no monitoring, 0.63 with local monitoring, and 0.70 when cheating could be detected everywhere.</p>
+<p>When evaluation after death was added, extinction fell the most.</p>
+<figure>
+  <img src="/images/research/rat/04/religion.png" alt="Comparison of no monitoring, local monitoring, always-watched condition, and afterlife reputation in an artificial rat colony">
+  <figcaption>Comparison under the 16-box condition. Being watched everywhere maintained cooperation, and adding afterlife reputation reduced extinction further.</figcaption>
+</figure>
+<p>The difference is easier to see when the same colony is run side by side.</p>
+<p>Without monitoring, free-riders spread. Cooperation decreases, and the colony becomes unstable.</p>
+<p>When cheating is likely to be detected everywhere, free-riders are punished and cooperators persist.</p>
+<figure>
+  <img src="/images/research/rat/04/religion.gif" alt="Simulation comparing no monitoring and an always-watched condition in an artificial rat colony">
+  <figcaption>Same colony. Without monitoring, free-riders spread. Under the always-watched condition, cooperation is maintained.</figcaption>
+</figure>
+<h2 id="why-local-monitoring-is-not-enough">Why Local Monitoring Is Not Enough</h2>
+<p>Local monitoring works in small groups.</p>
+<p>If someone is nearby, cheating can be seen. If it is seen, the cheater is penalized. So cheating becomes less attractive.</p>
+<p>But large groups change the situation.</p>
+<p>Individuals spread across space. A cooperator is not always nearby. In places where no one is watching, cheating can escape detection.</p>
+<p>Human monitoring is local.</p>
+<p>Large groups create anonymity.</p>
+<p>The always-watched condition compensates for that weakness. Cheating can be detected regardless of who is nearby.</p>
+<p>In this sense, god in the model is not a belief object. It is a function for preserving reputation in a large group.</p>
+<h2 id="interpretation">Interpretation</h2>
+<p>This is not a claim about whether religion is true.</p>
+<p>It does not model whether a god exists.</p>
+<p>It models a mechanism that maintains cooperation.</p>
+<p>Someone is watching. Cheating can be detected. Reputation falls. Help is withdrawn. Evaluation continues after death.</p>
+<p>When such a mechanism exists, short-term free-riding is suppressed.</p>
+<p>If cooperation remains, the transmission of social competence remains. Offspring keep chances to learn. The colony becomes less likely to collapse.</p>
+<p>In this model, being watched was not moral decoration.</p>
+<p>It was an executable condition for maintaining cooperation.</p>
+<h2 id="limitations">Limitations</h2>
+<p>This model does not reproduce real religion or belief.</p>
+<p>God here is a combination of monitoring, punishment, reputation, and afterlife evaluation. It does not model doctrine, ritual, community, or religious experience.</p>
+<p>Cooperation and cheating are also simplified. Real cooperation is more ambiguous and context-dependent.</p>
+<p>This note treats one hypothesis.</p>
+<p>In large groups, being watched and having a reputation can suppress free-riding and change the stability of cooperation.</p>
+<p>The model makes that hypothesis executable.</p>
+<h2 id="next-question">Next Question</h2>
+<p>So far, this sequence has treated collapse without resource shortage, love, the boundary of companions, and the maintenance of cooperation through reputation.</p>
+<p>The next step is to organize these models as one arc.</p>
+<p>Why does the colony collapse? What reconnects transmission? Who counts as a companion? How is cooperation maintained?</p>
+<p>The next note will summarize the sequence and clarify what these artificial rat colonies are being used to observe.</p>
+<h2 id="notes">Notes</h2>
+<ol>
+<li>free-riding: Receiving help from others without paying the cost of helping.</li>
+<li>reputation: In this note, reputation means that a detected cheater receives less help and suffers a reproductive penalty.</li>
+<li>afterlife reputation: A condition where evaluation continues after death. Here, it suppresses end-of-life defection by old individuals.</li>
+<li>god: In this note, god means a social function that combines being watched everywhere, punishment, reputation, and evaluation after death. It does not model an entity or belief content.</li>
+</ol>
+
+                </div>
+            </article>
+        </main>
+    </body>
+</html>

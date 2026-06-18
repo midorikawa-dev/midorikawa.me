@@ -1,0 +1,301 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: dark;
+  --bg: #101114;
+  --fg: #eef2f0;
+  --muted: rgba(238, 242, 240, 0.68);
+  --low: rgba(238, 242, 240, 0.44);
+  --line: rgba(238, 242, 240, 0.15);
+  --accent: #8ed7c5;
+  --mono: ui-monospace, SFMono-Regular, "Cascadia Code", Menlo, Consolas, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Yu Gothic UI", "Noto Sans JP", sans-serif;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p,
+h1,
+h2,
+h3,
+figure {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.shell {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 40px 24px 96px;
+}
+
+.nav {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 64px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.brand {
+  color: var(--fg);
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.low {
+  color: var(--low);
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.proto-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.proto-links a,
+.text-link {
+  color: var(--accent);
+}
+
+.intro {
+  max-width: 660px;
+}
+
+.intro h1 {
+  margin-bottom: 18px;
+  font-size: 34px;
+  line-height: 1.25;
+}
+
+.intro p {
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.section {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.section h2 {
+  margin-bottom: 22px;
+  color: var(--low);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.stack {
+  display: grid;
+  gap: 28px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.row h3 {
+  font-size: 17px;
+}
+
+.row p {
+  color: var(--muted);
+}
+
+.row .meta {
+  color: var(--low);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.image-strip {
+  margin-top: 26px;
+  max-width: 560px;
+}
+
+.image-strip img {
+  border: 1px solid var(--line);
+}
+
+.image-strip figcaption {
+  margin-top: 10px;
+  color: var(--low);
+  font-size: 12px;
+}
+
+/* Variant A */
+.paco-layout .columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 38px;
+}
+
+.paco-layout .item + .item {
+  margin-top: 28px;
+}
+
+.paco-layout .item h3 {
+  margin-bottom: 4px;
+  font-size: 16px;
+}
+
+.paco-layout .item p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Variant B */
+.projects-page {
+  max-width: 760px;
+}
+
+.projects-page h1 {
+  margin-bottom: 16px;
+  font-size: 36px;
+}
+
+.projects-page h2 {
+  margin-top: 44px;
+  margin-bottom: 12px;
+  font-size: 22px;
+}
+
+.projects-page h3 {
+  margin-top: 24px;
+  font-size: 17px;
+}
+
+.projects-page p {
+  color: var(--muted);
+}
+
+.projects-page .lead {
+  margin-bottom: 28px;
+  font-size: 17px;
+}
+
+/* Variant C */
+.steve-layout {
+  max-width: 780px;
+}
+
+.steve-layout .site-title {
+  margin-bottom: 8px;
+  font-size: 38px;
+}
+
+.steve-layout .top-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.steve-layout .bio {
+  margin-top: 34px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.topic-list,
+.writing-list {
+  display: grid;
+  gap: 12px;
+}
+
+.topic-list a,
+.writing-list a {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: baseline;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.topic-list span,
+.writing-list time {
+  color: var(--low);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+@media (max-width: 720px) {
+  .shell {
+    padding: 28px 20px 72px;
+  }
+
+  .nav {
+    display: block;
+    margin-bottom: 44px;
+  }
+
+  .nav-links {
+    margin-top: 12px;
+  }
+
+  .paco-layout .columns,
+  .row,
+  .topic-list a,
+  .writing-list a {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .intro h1,
+  .projects-page h1,
+  .steve-layout .site-title {
+    font-size: 30px;
+  }
+}

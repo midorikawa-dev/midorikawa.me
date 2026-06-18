@@ -9,7 +9,8 @@ compile_sass = true
 build_search_index = true
 
 taxonomies = [
-  { name = "topics", feed = false, render = true }
+  { name = "topics", feed = false, render = true },
+  { name = "series", feed = false, render = true }
 ]
 
 [markdown]

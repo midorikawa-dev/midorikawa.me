@@ -5,6 +5,8 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Topics — {{ config.title }}</title>
+        {{ macros::favicon_links() }}
+        {{ macros::font_links() }}
         <link rel="stylesheet" href="/css/style.css" />
     </head>
     <body>
@@ -15,9 +17,15 @@
                 <h1 class="section-label">Topics</h1>
                 <div class="topic-index">
                     {% for term in terms %}
+                    {% set_global topic_count = 0 %}
+                    {% for topic_page in term.pages %}
+                    {% if topic_page.extra.lang != "en" %}
+                    {% set_global topic_count = topic_count + 1 %}
+                    {% endif %}
+                    {% endfor %}
                     <a class="topic-row" href="{{ term.permalink }}">
                         <span class="topic-name">{{ term.name }}</span>
-                        <span class="topic-count">{{ term.pages | length }} post{% if term.pages | length != 1 %}s{% endif %}</span>
+                        <span class="topic-count">{{ topic_count }} post{% if topic_count != 1 %}s{% endif %}</span>
                     </a>
                     {% endfor %}
                 </div>
