@@ -58,9 +58,57 @@ alternate_url = "/en/research/01-resource-unbounded-collapse/"
 
 つまり、このモデルは最初から壊れているわけではない。健全に回る条件を確認したうえで、社会的役割の有限性だけを導入する。
 
-## 操作
+## 操作と観測
 
 操作は小さい。餌と水は無制限のままにする。変えるのは、縄張り、求愛、育児、社会学習が成立する社会的役割の容量である。
+
+本モデルで固定するもの、変えるもの、観測するものを Python 風に書けば、次のようになる。
+
+```python
+fixed = {
+    "food": "unlimited",
+    "water": "unlimited",
+    "boundary": "closed",
+}
+
+control = {
+    "social_roles": ["abundant", "finite"],
+}
+
+observed = [
+    "population",
+    "births",
+    "social_competence",
+    "withdrawn_ratio",
+]
+```
+
+もう少し式に寄せると、見ているのは次のような関係である。
+
+```text
+N_t: 時刻 t の個体数
+R: 社会的役割の容量
+C_t: 時刻 t の平均的な社会的能力
+
+S_t = N_t / R
+A_t = min(1, 1 / S_t)
+L_t = A_t * C_t
+C_{t+1} ~= L_t
+```
+
+ここで `S_t` は、個体数が社会的役割の容量に対してどれだけ大きいかを表す。`A_t` は、子が有能な成体にアクセスできる割合の粗い近似である。`L_t` は、次世代へ社会的能力が伝わる強さを表す。
+
+Python 風に言えば、崩壊の入り口は次の演算に近い。
+
+```python
+role_pressure = population / role_capacity
+adult_access = min(1.0, 1.0 / role_pressure)
+learning = adult_access * competent_adult_ratio
+
+next_generation_competence = learning
+```
+
+これは実装そのものではない。モデルの構造を読むための最小表現である。
 
 社会的役割が十分にあるとき、生活環は閉じる。社会的役割が不足すると、生活環の遷移が詰まる。
 

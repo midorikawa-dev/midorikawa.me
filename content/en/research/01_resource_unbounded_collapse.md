@@ -56,9 +56,57 @@ The important point is that this life cycle does not collapse by itself. When so
 
 In other words, the model is not broken from the start. After confirming that it can run in a healthy condition, the only intervention is to make social roles finite.
 
-## Intervention
+## Intervention And Observables
 
 The intervention is small. Food and water remain unlimited. What changes is the capacity of social roles required for territory, courtship, parenting, and social learning.
+
+In Python-like notation, the fixed conditions, control variable, and observed quantities can be written as follows.
+
+```python
+fixed = {
+    "food": "unlimited",
+    "water": "unlimited",
+    "boundary": "closed",
+}
+
+control = {
+    "social_roles": ["abundant", "finite"],
+}
+
+observed = [
+    "population",
+    "births",
+    "social_competence",
+    "withdrawn_ratio",
+]
+```
+
+In a slightly more mathematical form, the model is concerned with the following relation.
+
+```text
+N_t: population at time t
+R: capacity of social roles
+C_t: average social competence at time t
+
+S_t = N_t / R
+A_t = min(1, 1 / S_t)
+L_t = A_t * C_t
+C_{t+1} ~= L_t
+```
+
+Here, `S_t` is the pressure placed on social roles by the current population. `A_t` is a rough approximation of how much access offspring have to competent adults. `L_t` represents the strength of social transmission into the next generation.
+
+In Python-like notation, the entrance to collapse looks roughly like this.
+
+```python
+role_pressure = population / role_capacity
+adult_access = min(1.0, 1.0 / role_pressure)
+learning = adult_access * competent_adult_ratio
+
+next_generation_competence = learning
+```
+
+This is not the implementation itself. It is a compact way to read the structure of the model.
 
 When social roles are sufficient, the life cycle closes. When they are insufficient, transitions in the life cycle begin to jam.
 
