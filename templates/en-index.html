@@ -9,32 +9,30 @@
         <link rel="stylesheet" href="{{ get_url(path='css/style.css', cachebust=true) }}" />
     </head>
     <body>
-        {% set research = get_section(path="en/research/_index.md") %} {% set
-        topics = get_taxonomy(kind="topics") %}
+        {% set projects = get_section(path="en/projects/_index.md") %}
+        {% set research = get_section(path="en/research/_index.md") %}
+        {% set log = get_section(path="en/log/_index.md") %}
         <main class="home-wrap">
             {{ macros::site_header(lang="en", jp_url="/", en_url="/en/") }}
-            <p class="site-bio">
-                Exploring life, learning, society, and physics through code.
+
+            <p class="home-intro">
+                Midorikawa Lab. I explore life, learning, society, and physics through code.
             </p>
+            <p class="home-now">Now — building creature-engine and writing the AI Rat series.</p>
 
             <section class="home-section">
                 <div class="section-head">
-                    <h2 class="section-label">Recent Topics</h2>
-                    <a class="view-all" href="/topics/?lang=en">view all -></a>
+                    <h2 class="section-label">Projects</h2>
+                    <a class="view-all" href="/en/projects/">view all →</a>
                 </div>
-                <div class="topic-index">
-                    {% for topic in topics.items | slice(end=5) %}
-                    {% set_global topic_count = 0 %}
-                    {% for topic_page in topic.pages %}
-                    {% if topic_page.extra.lang == "en" %}
-                    {% set_global topic_count = topic_count + 1 %}
-                    {% endif %}
-                    {% endfor %}
-                    <a class="topic-row" href="{{ topic.permalink }}">
-                        <span class="topic-name">{{ topic.name }}</span>
-                        <span class="topic-count"
-                            >{{ topic_count }} post{% if topic_count != 1 %}s{% endif %}</span
-                        >
+                <div class="project-list">
+                    {% for p in projects.pages %}
+                    <a class="project-row" href="{{ p.path }}">
+                        <span class="project-main">
+                            <span class="project-name">{{ p.title }}</span>
+                            {% if p.description %}<span class="project-desc">{{ p.description }}</span>{% endif %}
+                        </span>
+                        {% if p.extra.status %}<span class="project-status">{{ p.extra.status }}</span>{% endif %}
                     </a>
                     {% endfor %}
                 </div>
@@ -42,21 +40,16 @@
 
             <section class="home-section">
                 <div class="section-head">
-                    <h2 class="section-label">Recent Writing</h2>
-                    <a class="view-all" href="/en/research/">view all -></a>
+                    <h2 class="section-label">Writing</h2>
+                    <a class="view-all" href="/en/research/">view all →</a>
                 </div>
                 <div class="post-list">
                     {% for page in research.pages | reverse | slice(end=5) %}
                     <a class="post-row" href="{{ page.path }}">
                         <span class="post-main">
                             <span class="post-title">{{ macros::numbered_title(title=page.title) }}</span>
-                            {% set page_topics = page.taxonomies.topics | default(value=[]) %}
                             {% set page_series = page.taxonomies.series | default(value=[]) %}
-                            {% if page_topics or page_series %}
-                            <span class="post-topic"
-                                >{% if page_topics %}{{ page_topics | first }}{% endif %}{% if page_topics and page_series %} / {% endif %}{% if page_series %}{{ page_series | first }}{% endif %}</span
-                            >
-                            {% endif %}
+                            {% if page_series %}<span class="post-topic">{{ page_series | first }}</span>{% endif %}
                         </span>
                         <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
                     </a>
@@ -64,10 +57,31 @@
                 </div>
             </section>
 
+            {% if log.pages | length > 0 %}
+            <section class="home-section">
+                <div class="section-head">
+                    <h2 class="section-label">Log</h2>
+                    <a class="view-all" href="/en/log/">view all →</a>
+                </div>
+                <div class="post-list">
+                    {% for page in log.pages | slice(end=4) %}
+                    <a class="post-row" href="{{ page.path }}">
+                        <span class="post-main">
+                            <span class="post-title">{{ page.title }}</span>
+                        </span>
+                        <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
+                    </a>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endif %}
+
             <section class="home-section connect-section">
                 <h2 class="section-label">Connect</h2>
-                <p>Reach me at hello [at] midorikawa.me.</p>
+                <p><a href="https://github.com/midorikawa-dev">GitHub</a> · hello [at] midorikawa.me</p>
             </section>
+
+            {{ macros::site_footer(lang="en") }}
         </main>
     </body>
 </html>

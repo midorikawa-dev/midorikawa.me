@@ -14,12 +14,9 @@
         {% if section.path and section.path is starting_with("/en/") %}
         {% set_global section_lang = "en" %}
         {% endif %}
-        {% set_global sec_jp_url = "/" %}
-        {% set_global sec_en_url = "/en/" %}
-        {% if section.path == "/research/" or section.path == "/en/research/" %}
-        {% set_global sec_jp_url = "/research/" %}
-        {% set_global sec_en_url = "/en/research/" %}
-        {% endif %}
+        {% set sec_base = section.path | trim_start_matches(pat="/en") %}
+        {% set_global sec_jp_url = sec_base %}
+        {% set_global sec_en_url = "/en" ~ sec_base %}
         <main class="home-wrap">
             {{ macros::site_header(lang=section_lang, jp_url=sec_jp_url, en_url=sec_en_url) }}
 
@@ -41,6 +38,7 @@
                     {% endfor %}
                 </div>
             </section>
+            {{ macros::site_footer(lang=section_lang) }}
         </main>
     </body>
 </html>

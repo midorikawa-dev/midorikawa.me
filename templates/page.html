@@ -2,18 +2,30 @@
 {# 言語間の対応記事を slug の語幹（番号接頭辞 "NN-" を除いた部分）で対応づける。
    JP/EN で語幹が一致し、番号を振り直しても壊れない（alternate_url の手書き同期が不要）。 #}
 {% set is_en = page.extra.lang and page.extra.lang == "en" %}
+{# ページ自身のセクション名（research / projects / log …）から JP↔EN を対応づける。 #}
 {% if is_en %}
-    {% set_global my_section = get_section(path="en/research/_index.md") %}
-    {% set_global other_section = get_section(path="research/_index.md") %}
+    {% set_global sec = page.components[1] %}
+    {% set_global my_section = get_section(path="en/" ~ sec ~ "/_index.md") %}
+    {% set_global other_section = get_section(path=sec ~ "/_index.md") %}
 {% else %}
-    {% set_global my_section = get_section(path="research/_index.md") %}
-    {% set_global other_section = get_section(path="en/research/_index.md") %}
+    {% set_global sec = page.components[0] %}
+    {% set_global my_section = get_section(path=sec ~ "/_index.md") %}
+    {% set_global other_section = get_section(path="en/" ~ sec ~ "/_index.md") %}
 {% endif %}
-{% set my_key = page.slug | split(pat="-") | slice(start=1) | join(sep="-") %}
+{# research は番号接頭辞 "NN-" を外した語幹で対応づけ（renumber に強い）。他セクションは slug そのまま。 #}
+{% if sec == "research" %}
+    {% set_global my_key = page.slug | split(pat="-") | slice(start=1) | join(sep="-") %}
+{% else %}
+    {% set_global my_key = page.slug %}
+{% endif %}
 {% set_global lang_counterpart = "" %}
 {% set_global lang_counterpart_permalink = "" %}
 {% for p in other_section.pages %}
-    {% set p_key = p.slug | split(pat="-") | slice(start=1) | join(sep="-") %}
+    {% if sec == "research" %}
+        {% set_global p_key = p.slug | split(pat="-") | slice(start=1) | join(sep="-") %}
+    {% else %}
+        {% set_global p_key = p.slug %}
+    {% endif %}
     {% if my_key != "" and p_key == my_key %}
         {% set_global lang_counterpart = p.path %}
         {% set_global lang_counterpart_permalink = p.permalink %}

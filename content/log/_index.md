@@ -1,5 +1,5 @@
 +++
-title = "Writing"
-sort_by = "title"
+title = "Log"
+sort_by = "date"
 page_template = "page.html"
 +++

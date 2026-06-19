@@ -1,5 +1,5 @@
 +++
-title = "Notes"
+title = "Writing"
 sort_by = "title"
 page_template = "page.html"
 +++
