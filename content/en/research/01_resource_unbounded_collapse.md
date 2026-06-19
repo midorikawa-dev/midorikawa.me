@@ -75,23 +75,12 @@ When social roles are insufficient, transitions in the life cycle begin to jam.
 
 The experiment asks whether that difference is enough to determine collapse.
 
-As a simple relation, the model can be read like this.
+At its core, the relation is just this.
 
-```text
-crowding = population / social roles
-
-as crowding increases, learning opportunities decrease
-
-next generation competence = learning opportunities x competent adult ratio
-```
-
-As Rust-like pseudocode, the core condition is this.
-
-```rust
-let crowding = population as f32 / social_roles as f32;
-let learning = (1.0 - crowding).max(0.0);
-
-next_generation.competence = learning * competent_adult_ratio;
+```python
+crowding = population / social_roles
+learning  = max(0.0, 1.0 - crowding)
+next_competence = learning * competent_adult_ratio
 ```
 
 If the population grows while the number of social roles stays fixed, crowding increases. As crowding increases, offspring have fewer opportunities to learn from competent adults. If those opportunities decrease, the next generation's social competence decreases as well.

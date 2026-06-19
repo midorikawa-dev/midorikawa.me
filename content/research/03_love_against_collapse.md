@@ -1,5 +1,5 @@
 +++
-title = "02. 愛は崩壊を防ぐか"
+title = "03. 愛は崩壊を防ぐか"
 date = 2026-06-18
 description = "AIラット群における非血縁援助と社会的能力の伝達"
 [taxonomies]

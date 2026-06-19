@@ -2,6 +2,7 @@
 title = "07. 記憶の長さ"
 date = 2026-06-18
 description = "AIラット群における記憶、信頼、裏切り、協力の安定性"
+draft = true
 [taxonomies]
 topics = ["Artificial Life"]
 series = ["AI Rat Colony"]

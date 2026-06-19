@@ -2,6 +2,7 @@
 title = "08. AIラット群の設計"
 date = 2026-06-18
 description = "箱、個体、空間、行動更新としてAIラット群を整理する"
+draft = true
 [taxonomies]
 topics = ["Artificial Life"]
 series = ["AI Rat Colony"]

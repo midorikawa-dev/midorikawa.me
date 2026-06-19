@@ -2,6 +2,7 @@
 title = "06. 経験から変わる個体"
 date = 2026-06-18
 description = "AIラット群における社会的能力を、固定値ではなく経験で変わるウェイトとして扱う"
+draft = true
 [taxonomies]
 topics = ["Artificial Life"]
 series = ["AI Rat Colony"]

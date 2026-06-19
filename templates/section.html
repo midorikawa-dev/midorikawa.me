@@ -14,8 +14,12 @@
         {% if section.path and section.path is starting_with("/en/") %}
         {% set_global section_lang = "en" %}
         {% endif %}
+        {# research セクションは反対言語の research へ切り替え（無ければ言語ホームへフォールバック） #}
+        {% set_global sec_switch = "" %}
+        {% if section.path == "/research/" %}{% set_global sec_switch = "/en/research/" %}{% endif %}
+        {% if section.path == "/en/research/" %}{% set_global sec_switch = "/research/" %}{% endif %}
         <main class="home-wrap">
-            {{ macros::site_header(lang=section_lang) }}
+            {{ macros::site_header(lang=section_lang, switch_url=sec_switch) }}
 
             <section class="home-section">
                 <h1 class="section-label">{{ section.title }}</h1>

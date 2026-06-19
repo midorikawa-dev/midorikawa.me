@@ -1,5 +1,5 @@
 +++
-title = "03. 仲間の境界"
+title = "07. 仲間の境界"
 date = 2026-06-18
 description = "AIラット群における非血縁協力と共有タグ"
 [taxonomies]

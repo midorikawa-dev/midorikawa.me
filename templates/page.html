@@ -1,17 +1,33 @@
 {% import "macros.html" as macros %}
+{# 言語間の対応記事を slug の語幹（番号接頭辞 "NN-" を除いた部分）で対応づける。
+   JP/EN で語幹が一致し、番号を振り直しても壊れない（alternate_url の手書き同期が不要）。 #}
+{% set is_en = page.extra.lang and page.extra.lang == "en" %}
+{% if is_en %}
+    {% set_global my_section = get_section(path="en/research/_index.md") %}
+    {% set_global other_section = get_section(path="research/_index.md") %}
+{% else %}
+    {% set_global my_section = get_section(path="research/_index.md") %}
+    {% set_global other_section = get_section(path="en/research/_index.md") %}
+{% endif %}
+{% set my_key = page.slug | split(pat="-") | slice(start=1) | join(sep="-") %}
+{% set_global lang_counterpart = "" %}
+{% for p in other_section.pages %}
+    {% set p_key = p.slug | split(pat="-") | slice(start=1) | join(sep="-") %}
+    {% if my_key != "" and p_key == my_key %}{% set_global lang_counterpart = p.permalink %}{% endif %}
+{% endfor %}
 <!doctype html>
-<html lang="{% if page.extra.lang and page.extra.lang == "en" %}en{% else %}ja{% endif %}">
+<html lang="{% if is_en %}en{% else %}ja{% endif %}">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{{ page.title }} — {{ config.title }}</title>
-        {% if page.extra.alternate_url %}
-        {% if page.extra.lang and page.extra.lang == "en" %}
+        {% if lang_counterpart %}
+        {% if is_en %}
         <link rel="alternate" hreflang="en" href="{{ page.permalink }}" />
-        <link rel="alternate" hreflang="ja" href="{{ get_url(path=page.extra.alternate_url) }}" />
+        <link rel="alternate" hreflang="ja" href="{{ lang_counterpart }}" />
         {% else %}
         <link rel="alternate" hreflang="ja" href="{{ page.permalink }}" />
-        <link rel="alternate" hreflang="en" href="{{ get_url(path=page.extra.alternate_url) }}" />
+        <link rel="alternate" hreflang="en" href="{{ lang_counterpart }}" />
         {% endif %}
         {% endif %}
         {{ macros::favicon_links() }}
@@ -21,8 +37,7 @@
     <body>
         <main class="article-wrap">
             {% set header_lang = page.extra.lang | default(value="ja") %}
-            {% set header_switch_url = page.extra.alternate_url | default(value="") %}
-            {{ macros::site_header(lang=header_lang, switch_url=header_switch_url) }}
+            {{ macros::site_header(lang=header_lang, switch_url=lang_counterpart) }}
 
             <article class="article">
                 <header class="article-header">
@@ -60,6 +75,24 @@
                     {{ page.content | safe }}
                 </div>
             </article>
+
+            {# 連載の前後ナビ：自分の言語の research セクションの並び（番号順）から前後を求める #}
+            {% if page.path is starting_with("/research/") or page.path is starting_with("/en/research/") %}
+            {% set_global series_prev = false %}
+            {% set_global series_next = false %}
+            {% set_global series_seen = false %}
+            {% for p in my_section.pages %}
+                {% if series_seen and not series_next %}{% set_global series_next = p %}{% endif %}
+                {% if p.path == page.path %}{% set_global series_seen = true %}{% endif %}
+                {% if not series_seen %}{% set_global series_prev = p %}{% endif %}
+            {% endfor %}
+            {% if series_seen and (series_prev or series_next) %}
+            <nav class="series-nav">
+                {% if series_prev %}<a class="series-prev" href="{{ series_prev.path }}"><span class="series-dir">←</span> {{ series_prev.title }}</a>{% endif %}
+                {% if series_next %}<a class="series-next" href="{{ series_next.path }}">{{ series_next.title }} <span class="series-dir">→</span></a>{% endif %}
+            </nav>
+            {% endif %}
+            {% endif %}
         </main>
     </body>
 </html>
