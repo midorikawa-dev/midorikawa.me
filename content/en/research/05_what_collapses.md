@@ -1,8 +1,7 @@
 +++
 title = "05. What Collapses?"
-date = 2026-06-18
-draft = true
-description = "Resources, transmission, care, companions, and reputation in an artificial rat colony"
+date = 2026-06-21
+description = "When collapse comes, the first thing lost is not the number of individuals but the knowledge."
 [taxonomies]
 topics = ["Artificial Life"]
 series = ["AI Rat Colony"]
@@ -14,256 +13,62 @@ alternate_url = "/research/05-what-collapses/"
 
 ## Overview
 
-So far, the artificial rat colony has been used to examine four conditions.
+In 04 I said the voice is the carrier of culture. The voice that teaches, that warns, that brings the colony into step. So what happens to that culture when the colony breaks?
 
-Collapse even when resources are available.
+Let me give the answer first: it does not come back. More precisely, the number of bodies returns, but the knowledge does not. When collapse comes, the first thing lost is not the number of individuals — it is the knowledge.
 
-Care that suppresses collapse.
+## Knowledge Needs a Number of Teachers
 
-A boundary that turns non-kin into companions.
+The "vocabulary" of the voice is not something a rat is born with. It is culture, inherited as the young learn from adults. And the more complex the knowledge, the more users it takes to keep it alive.
 
-A reputation system that suppresses free-riding and maintains cooperation.
+This is known in human culture too. The more complex a tool or skill becomes, the more people who can demonstrate and teach it you need to pass it to the next generation. When there are too few teachers, the most complex things go first, lost without being rebuilt<sup class="term-note">＊</sup>.
 
-This note does not add a new mechanism.
+I made the model work the same way. Each cultural item carries a number of teachers needed to keep it. Simple items survive with only a few. Complex items cannot survive without many teachers.
 
-It organizes the previous results as one arc.
-
-The main point is that collapse was not only a decrease in population size.
-
-What collapsed was transmission.
-
-## Question
-
-What keeps a colony together?
-
-Food and water make survival possible.
-
-But they were not enough to maintain the colony.
-
-Reproduction, parenting, learning, mate choice, helping, and avoiding betrayal do not happen inside one body alone.
-
-They happen through relations between individuals.
-
-So population size alone is not enough to understand collapse.
-
-Who can learn from whom?
-
-Who helps whom?
-
-Who counts as a companion?
-
-Where does cheating stop?
-
-Those are the questions the model has to expose.
-
-## Not Resources, But Transmission
-
-The first model showed collapse without resource shortage.
-
-Even with unlimited food and water, the colony collapsed.
-
-The cause was not starvation.
-
-Social roles became scarce.
-
-Individuals could not secure territory. Courtship became unstable. Parenting became unstable. Offspring lost chances to learn from competent adults.
-
-At that stage, individuals did not disappear immediately.
-
-The colony remained for a while.
-
-But what could be passed to the next generation became thinner.
-
-In short:
-
-```text
-social roles become scarce
--> offspring have fewer chances to learn
--> the next generation loses social competence
--> the colony moves toward collapse
+```python
+def maintain(item, adults):
+    # If too few teachers know the item, no one can learn it, and it is simply lost (never rebuilt).
+    if count_who_know(item, adults) < item.teachers_needed:
+        item.alive = False
+    return item.alive
 ```
 
-At that point, collapse is no longer just a question of number.
+## Bodies Return, Knowledge Does Not
 
-It becomes a question of transmission.
+Now I look again at the collapse from 02, this time through the eyes of knowledge. When the capacity for roles runs short, the teaching side drops sharply. The number of bodies lingers for a while, and when the crowding eases it even recovers in waves. But the teachers cannot keep up.
 
-## Care Reconnects
+Then the most complex cultural items go first: they fall below the number of teachers needed to keep them, and disappear. Once an item is gone, it does not return. What no one knows, no one can learn.
 
-The next model treated care.
+<figure>
+  <img src="/images/research/rat/05/knowledge_extinction.png" alt="At collapse, bodies return in waves while culture drops in steps and does not return">
+  <figcaption>At collapse. Bodies (gray) return in waves, but culture (red) drops in steps and does not return. Teachers (orange) cannot keep up either. On the right, as a share of the peak: bodies 45%, teachers 20%, knowledge 24%.</figcaption>
+</figure>
 
-Care here is not a description of emotion.
+The numbers make it clear. A colony with enough roles kept all 10 of 10 cultural items. A colony that collapsed kept only 2.4, even when it survived. Against the peak, bodies returned to 45%, but teachers to 20% and knowledge to 24%. Bodies recover more easily; knowledge dies first.
 
-It is a behavior that responds to the state of another individual.
+## Bodies Remain, but the Colony Hollows Out
 
-Helping an injured individual. Staying near a weakened individual. Supporting parenting. Supporting social learning.
+What this shows is that a colony "remaining" and a colony "continuing" are not the same thing.
 
-When care was added, the colony became less likely to collapse.
+Count from the outside and the rats are still there. But inside, what can be passed to the next generation is shrinking. Teachers decrease, knowledge decreases, and the adults who hold that knowledge decrease further. Only bodies remain, and culture drains away. Collapse looks full for a while, even as it empties out.
 
-But the important point was not simply that individuals lived longer.
+<figure>
+  <img src="/images/research/rat/05/knowledge_extinction.gif" alt="The culture of the voice turns gray from the most complex items first, and the song grows quiet">
+  <figcaption>The culture of the voice turns gray from the most complex items first. The bodies are still there, but the song grows quiet.</figcaption>
+</figure>
 
-Learning opportunities remained.
+## Limits
 
-Competent adults remained.
+Let me be clear. The "culture" here is not a claim that real rats build up anything this complex. A culture that accumulates complexity is where this model steps one pace beyond actual rats. Read it as a thought experiment with a minimal intelligent individual wearing a rat's skin.
 
-Offspring could learn nearby.
+Even so, something is visible. The recovery of bodies and the loss of knowledge run at different speeds. The count can return while the knowledge does not.
 
-Social competence could pass to the next generation.
+## Next
 
-Care did not only increase survival.
+If knowledge dies together with its living teachers, then I can ask: can knowledge be placed outside the teachers?
 
-It reconnected transmission.
-
-## The Boundary of Companions
-
-But if care stays limited to kin, its reach is narrow.
-
-So I added shared tags.
-
-Individuals with the same tag were treated as companions.
-
-This is not a model of real religion, nations, or culture as they actually exist.
-
-It is a smaller rule.
-
-But the effect was visible.
-
-Help reached non-kin.
-
-There were more individuals to learn from.
-
-Social competence became easier to preserve across the colony.
-
-The point is that the boundary of companions is not determined only by biological kinship.
-
-When who counts as a companion changes, the reach of care also changes.
-
-## Being Watched
-
-But when cooperation expands, free-riders appear.
-
-Some individuals receive help without helping others.
-
-In the short term, that can pay.
-
-So expanding cooperation is not enough.
-
-There also has to be a condition that maintains cooperation.
-
-That is why reputation and monitoring were added.
-
-If an individual is watched, cheating can be detected.
-
-If cheating is detected, the individual receives less help.
-
-If evaluation continues after death, even end-of-life defection becomes less attractive.
-
-Under those conditions, cooperators remained more strongly.
-
-When cooperation remains, offspring keep chances to learn.
-
-Again, the central object is transmission.
-
-## One Arc
-
-These four notes are not separate stories.
-
-They look at the same problem from different sides.
-
-The relation can be summarized like this.
-
-```text
-resources alone do not maintain a colony
-
-social roles are necessary
-
-when social roles become scarce, transmission breaks
-
-care reconnects weakened transmission
-
-the boundary of companions widens the reach of care
-
-reputation suppresses free-riding that would break cooperation
-```
-
-As code, the arc is roughly this.
-
-```rust
-let transmission =
-    social_roles.available()
-    + care.reconnects_learning()
-    + boundary.expands_help()
-    + reputation.suppresses_free_riding();
-
-colony.stability = transmission;
-```
-
-From this angle, colony stability is not decided only by the strength of individuals.
-
-It is decided by relations between individuals.
-
-## What the Model Observes
-
-The goal is not to reproduce real rats exactly.
-
-It is also not to shrink human society into a toy copy.
-
-The goal is to observe the conditions of collapse and maintenance.
-
-Which conditions allow learning to persist across generations?
-
-Which missing conditions hollow out a colony even while individuals remain?
-
-Which rules widen care and cooperation?
-
-Which rules suppress behaviors that break cooperation?
-
-Writing the model in code separates the conditions.
-
-Separated conditions can be compared.
-
-Comparison makes the object of collapse slightly clearer.
-
-## What Is Still Missing
-
-The model is still simple.
-
-Emotion is simplified. Learning is simplified. Social relations are simplified.
-
-It does not reproduce real love, culture, religion, institutions, family, or states.
-
-But simple models can make certain things visible.
-
-Conditions can be moved one by one.
-
-Differences in result can be observed.
-
-It becomes possible to separate which conditions support transmission and which conditions accelerate collapse.
-
-For now, that is enough.
-
-Before building a large explanation, I want to run small conditions and see what changes.
-
-That is what this series is for.
-
-## Next Question
-
-So far, collapse has been treated as a problem of transmission.
-
-The next step is to make the individuals a little stronger.
-
-At the moment, individuals do not learn very much.
-
-They also have limited ability to change strategy with experience.
-
-The next note will treat conditions where individuals change behavior through experience.
-
-Is social competence a fixed property?
-
-Or does it change through environment and relation?
+Can it be kept — written down somewhere, or repeated by everyone — so that it survives even when the individuals who remembered it are gone? Next, I take up records and ritual.
 
 ## Notes
 
-1. transmission: Here, the process by which offspring learn social competence from competent adults and carry it into the next generation.
-2. social role: A position or opportunity that allows the life cycle of the colony to function, such as territory, courtship, parenting, or social learning.
-3. care: In this series, care is treated as behavior that responds to the state of another individual, not as a description of inner emotion.
-4. reputation: The effect by which a detected cheater receives less help and suffers a reproductive penalty.
+1. Cultural complexity and teachers: The more complex a skill or body of knowledge, the more users (demonstrators) it takes to maintain. When the number falls below a threshold, it is lost without being rebuilt. In anthropology this is argued by Henrich and others, and is known from cases such as the simplification of tool technology in Tasmania.

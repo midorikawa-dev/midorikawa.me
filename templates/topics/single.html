@@ -10,18 +10,27 @@
         <link rel="stylesheet" href="/css/style.css" />
     </head>
     <body>
+        {% set topic_path = "/topics/" ~ term.slug ~ "/" %}
         <main class="home-wrap">
-            {{ macros::site_header(lang="ja") }}
+            {{ macros::site_header(lang="ja", jp_url=topic_path, en_url=topic_path ~ "?lang=en") }}
 
             <section class="home-section">
                 <div class="section-head">
                     <h1 class="section-label">{{ term.name }}</h1>
-                    <a class="view-all" href="/topics/">← all topics</a>
+                    <a class="view-all" href="/topics/" data-lang-row="ja">← all topics</a>
+                    <a class="view-all" href="/topics/?lang=en" data-lang-row="en">← all topics</a>
                 </div>
                 <div class="post-list">
                     {% for page in term.pages %}
                     {% if page.extra.lang != "en" %}
-                    <a class="post-row" href="{{ page.path }}">
+                    <a class="post-row" href="{{ page.path }}" data-lang-row="ja">
+                        <span class="post-main">
+                            <span class="post-title">{{ macros::numbered_title(title=page.title) }}</span>
+                        </span>
+                        <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
+                    </a>
+                    {% else %}
+                    <a class="post-row" href="{{ page.path }}" data-lang-row="en">
                         <span class="post-main">
                             <span class="post-title">{{ macros::numbered_title(title=page.title) }}</span>
                         </span>

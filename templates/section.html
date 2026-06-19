@@ -14,12 +14,14 @@
         {% if section.path and section.path is starting_with("/en/") %}
         {% set_global section_lang = "en" %}
         {% endif %}
-        {# research セクションは反対言語の research へ切り替え（無ければ言語ホームへフォールバック） #}
-        {% set_global sec_switch = "" %}
-        {% if section.path == "/research/" %}{% set_global sec_switch = "/en/research/" %}{% endif %}
-        {% if section.path == "/en/research/" %}{% set_global sec_switch = "/research/" %}{% endif %}
+        {% set_global sec_jp_url = "/" %}
+        {% set_global sec_en_url = "/en/" %}
+        {% if section.path == "/research/" or section.path == "/en/research/" %}
+        {% set_global sec_jp_url = "/research/" %}
+        {% set_global sec_en_url = "/en/research/" %}
+        {% endif %}
         <main class="home-wrap">
-            {{ macros::site_header(lang=section_lang, switch_url=sec_switch) }}
+            {{ macros::site_header(lang=section_lang, jp_url=sec_jp_url, en_url=sec_en_url) }}
 
             <section class="home-section">
                 <h1 class="section-label">{{ section.title }}</h1>

@@ -124,12 +124,17 @@ img {
   font-size: 11px;
 }
 
-.header-language span {
+.header-language .is-active {
   color: var(--accent);
 }
 
 .header-language a {
   color: var(--faint);
+}
+
+html[data-lang-preference="en"] [data-lang-row="ja"],
+html:not([data-lang-preference="en"]) [data-lang-row="en"] {
+  display: none;
 }
 
 .site-bio {

@@ -11,9 +11,13 @@
 {% endif %}
 {% set my_key = page.slug | split(pat="-") | slice(start=1) | join(sep="-") %}
 {% set_global lang_counterpart = "" %}
+{% set_global lang_counterpart_permalink = "" %}
 {% for p in other_section.pages %}
     {% set p_key = p.slug | split(pat="-") | slice(start=1) | join(sep="-") %}
-    {% if my_key != "" and p_key == my_key %}{% set_global lang_counterpart = p.permalink %}{% endif %}
+    {% if my_key != "" and p_key == my_key %}
+        {% set_global lang_counterpart = p.path %}
+        {% set_global lang_counterpart_permalink = p.permalink %}
+    {% endif %}
 {% endfor %}
 <!doctype html>
 <html lang="{% if is_en %}en{% else %}ja{% endif %}">
@@ -24,10 +28,10 @@
         {% if lang_counterpart %}
         {% if is_en %}
         <link rel="alternate" hreflang="en" href="{{ page.permalink }}" />
-        <link rel="alternate" hreflang="ja" href="{{ lang_counterpart }}" />
+        <link rel="alternate" hreflang="ja" href="{{ lang_counterpart_permalink }}" />
         {% else %}
         <link rel="alternate" hreflang="ja" href="{{ page.permalink }}" />
-        <link rel="alternate" hreflang="en" href="{{ lang_counterpart }}" />
+        <link rel="alternate" hreflang="en" href="{{ lang_counterpart_permalink }}" />
         {% endif %}
         {% endif %}
         {{ macros::favicon_links() }}
@@ -37,7 +41,11 @@
     <body>
         <main class="article-wrap">
             {% set header_lang = page.extra.lang | default(value="ja") %}
-            {{ macros::site_header(lang=header_lang, switch_url=lang_counterpart) }}
+            {% if is_en %}
+                {{ macros::site_header(lang=header_lang, jp_url=lang_counterpart, en_url=page.path) }}
+            {% else %}
+                {{ macros::site_header(lang=header_lang, jp_url=page.path, en_url=lang_counterpart) }}
+            {% endif %}
 
             <article class="article">
                 <header class="article-header">

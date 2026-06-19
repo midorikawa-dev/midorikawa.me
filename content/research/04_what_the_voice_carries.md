@@ -1,6 +1,6 @@
 +++
 title = "04. 声は何を運ぶのか"
-date = 2026-06-19
+date = 2026-06-20
 description = "ネズミの声は言葉ではない。運ぶのは、気分と状況だ"
 [taxonomies]
 topics = ["Artificial Life"]
@@ -8,6 +8,7 @@ series = ["AI Rat Colony"]
 
 [extra]
 lang = "jp"
+alternate_url = "/en/research/04-what-the-voice-carries/"
 +++
 
 ## 概要

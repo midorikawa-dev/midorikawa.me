@@ -12,7 +12,7 @@
         {% set research = get_section(path="en/research/_index.md") %} {% set
         topics = get_taxonomy(kind="topics") %}
         <main class="home-wrap">
-            {{ macros::site_header(lang="en") }}
+            {{ macros::site_header(lang="en", jp_url="/", en_url="/en/") }}
             <p class="site-bio">
                 Exploring life, learning, society, and physics through code.
             </p>
@@ -20,7 +20,7 @@
             <section class="home-section">
                 <div class="section-head">
                     <h2 class="section-label">Recent Topics</h2>
-                    <a class="view-all" href="/topics/">view all -></a>
+                    <a class="view-all" href="/topics/?lang=en">view all -></a>
                 </div>
                 <div class="topic-index">
                     {% for topic in topics.items | slice(end=5) %}

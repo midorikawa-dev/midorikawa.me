@@ -11,22 +11,33 @@
     </head>
     <body>
         <main class="home-wrap">
-            {{ macros::site_header(lang="ja") }}
+            {{ macros::site_header(lang="ja", jp_url="/topics/", en_url="/topics/?lang=en") }}
 
             <section class="home-section">
                 <h1 class="section-label">Topics</h1>
                 <div class="topic-index">
                     {% for term in terms %}
                     {% set_global topic_count = 0 %}
+                    {% set_global topic_count_en = 0 %}
                     {% for topic_page in term.pages %}
                     {% if topic_page.extra.lang != "en" %}
                     {% set_global topic_count = topic_count + 1 %}
+                    {% else %}
+                    {% set_global topic_count_en = topic_count_en + 1 %}
                     {% endif %}
                     {% endfor %}
-                    <a class="topic-row" href="{{ term.permalink }}">
+                    {% if topic_count > 0 %}
+                    <a class="topic-row" href="/topics/{{ term.slug }}/" data-lang-row="ja">
                         <span class="topic-name">{{ term.name }}</span>
                         <span class="topic-count">{{ topic_count }} post{% if topic_count != 1 %}s{% endif %}</span>
                     </a>
+                    {% endif %}
+                    {% if topic_count_en > 0 %}
+                    <a class="topic-row" href="/topics/{{ term.slug }}/?lang=en" data-lang-row="en">
+                        <span class="topic-name">{{ term.name }}</span>
+                        <span class="topic-count">{{ topic_count_en }} post{% if topic_count_en != 1 %}s{% endif %}</span>
+                    </a>
+                    {% endif %}
                     {% endfor %}
                 </div>
             </section>

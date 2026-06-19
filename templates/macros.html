@@ -1,23 +1,37 @@
-{% macro site_header(lang="ja", switch_url="") %}
-<header class="site-header">
+{% macro site_header(lang="ja", switch_url="", jp_url="", en_url="") %}
+{% set jp_href = jp_url | default(value="") %}
+{% set en_href = en_url | default(value="") %}
+{% if not jp_href %}
+    {% if lang == "en" and switch_url %}
+        {% set_global jp_href = switch_url %}
+    {% else %}
+        {% set_global jp_href = "/" %}
+    {% endif %}
+{% endif %}
+{% if not en_href %}
+    {% if lang != "en" and switch_url %}
+        {% set_global en_href = switch_url %}
+    {% else %}
+        {% set_global en_href = "/en/" %}
+    {% endif %}
+{% endif %}
+<header class="site-header" data-site-lang="{{ lang }}">
     <div class="site-header-top">
         <a class="site-name" href="{% if lang == "en" %}/en/{% else %}/{% endif %}">
             <span class="brand-m">M</span><span class="brand-star">*</span><span class="brand-two">2</span>
         </a>
         <nav class="site-nav-links">
             <a href="{% if lang == "en" %}/en/research/{% else %}/research/{% endif %}">Notes</a>
-            <a href="/topics/">Topics</a>
-            <a href="/series/">Series</a>
+            <a href="{% if lang == "en" %}/topics/?lang=en{% else %}/topics/{% endif %}">Topics</a>
+            <a href="{% if lang == "en" %}/series/?lang=en{% else %}/series/{% endif %}">Series</a>
             <span class="header-language">
-                {% if lang == "en" %}
-                <a href="{% if switch_url %}{{ switch_url }}{% else %}/{% endif %}">JP</a><span>EN</span>
-                {% else %}
-                <span>JP</span><a href="{% if switch_url %}{{ switch_url }}{% else %}/en/{% endif %}">EN</a>
-                {% endif %}
+                <a href="{{ jp_href }}" data-language-choice="ja" class="{% if lang != "en" %}is-active{% endif %}">JP</a>
+                <a href="{{ en_href }}" data-language-choice="en" class="{% if lang == "en" %}is-active{% endif %}">EN</a>
             </span>
         </nav>
     </div>
 </header>
+<script src="/js/language.js" defer></script>
 {% endmacro site_header %}
 
 {% macro font_links() %}
