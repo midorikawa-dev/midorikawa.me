@@ -1,6 +1,7 @@
 +++
 title = "03. The Boundary of Companions"
 date = 2026-06-18
+draft = true
 description = "Non-kin cooperation and shared tags in an artificial rat colony"
 [taxonomies]
 topics = ["Artificial Life"]

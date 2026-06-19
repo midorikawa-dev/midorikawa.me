@@ -2,6 +2,7 @@
 title = "05. 何が崩壊するのか"
 date = 2026-06-18
 description = "AIラット群を通じて見えてきた、資源・伝達・愛・仲間・評判の関係"
+draft = true
 [taxonomies]
 topics = ["Artificial Life"]
 series = ["AI Rat Colony"]

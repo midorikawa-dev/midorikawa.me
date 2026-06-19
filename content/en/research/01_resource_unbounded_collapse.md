@@ -1,6 +1,7 @@
 +++
 title = "01. Collapse Without Resource Shortage"
 date = 2026-06-18
+draft = true
 description = "Social-role saturation and life-cycle breakdown in an artificial rat colony"
 [taxonomies]
 topics = ["Artificial Life"]

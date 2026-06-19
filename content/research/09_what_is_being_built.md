@@ -2,6 +2,7 @@
 title = "09. 何を作っているのか"
 date = 2026-06-18
 description = "AIラット群を、実験の再現ではなく、条件を動かすためのモデルとして整理する"
+draft = true
 [taxonomies]
 topics = ["Artificial Life"]
 series = ["AI Rat Colony"]

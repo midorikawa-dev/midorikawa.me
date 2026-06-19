@@ -1,6 +1,7 @@
 +++
 title = "02. Can Love Prevent Collapse?"
 date = 2026-06-18
+draft = true
 description = "Non-kin helping and the transmission of social competence in an artificial rat colony"
 [taxonomies]
 topics = ["Artificial Life"]

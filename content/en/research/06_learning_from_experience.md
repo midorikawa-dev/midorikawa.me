@@ -1,6 +1,7 @@
 +++
 title = "06. Individuals That Change Through Experience"
 date = 2026-06-18
+draft = true
 description = "Treating social competence as updated behavior weights rather than fixed traits"
 [taxonomies]
 topics = ["Artificial Life"]

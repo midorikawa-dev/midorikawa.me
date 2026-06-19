@@ -1,6 +1,7 @@
 +++
 title = "04. Being Watched"
 date = 2026-06-18
+draft = true
 description = "Free-riding, reputation, and the maintenance of cooperation in an artificial rat colony"
 [taxonomies]
 topics = ["Artificial Life"]

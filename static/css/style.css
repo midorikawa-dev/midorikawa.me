@@ -5,7 +5,7 @@
 }
 
 :root {
-  --bg: #161819;
+  --bg: #14161b;
   --panel: #1b1e20;
   --text: #eef2f0;
   --text-soft: rgba(238, 242, 240, 0.78);
@@ -30,9 +30,7 @@ html {
 
 body {
   margin: 0;
-  background:
-    radial-gradient(circle at 50% -20%, rgba(142, 215, 197, 0.05), transparent 34rem),
-    var(--bg);
+  background: var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
   line-height: 1.8;

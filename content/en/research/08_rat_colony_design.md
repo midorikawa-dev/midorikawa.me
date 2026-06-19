@@ -1,6 +1,7 @@
 +++
 title = "08. The Design of the Artificial Rat Colony"
 date = 2026-06-18
+draft = true
 description = "Organizing the artificial rat colony as box, individuals, space, and action updates"
 [taxonomies]
 topics = ["Artificial Life"]

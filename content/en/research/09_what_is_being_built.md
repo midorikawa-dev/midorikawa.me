@@ -1,6 +1,7 @@
 +++
 title = "09. What Is Being Built?"
 date = 2026-06-18
+draft = true
 description = "Treating the artificial rat colony as a model for changing conditions, not as a reproduction of an experiment"
 [taxonomies]
 topics = ["Artificial Life"]

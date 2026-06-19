@@ -1,6 +1,7 @@
 +++
 title = "05. What Collapses?"
 date = 2026-06-18
+draft = true
 description = "Resources, transmission, care, companions, and reputation in an artificial rat colony"
 [taxonomies]
 topics = ["Artificial Life"]
