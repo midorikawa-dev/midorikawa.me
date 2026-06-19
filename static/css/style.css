@@ -311,7 +311,6 @@ img {
 }
 
 .article-body {
-  counter-reset: article-section;
   color: var(--text-soft);
   font-size: 17px;
   line-height: 1.98;
@@ -328,37 +327,11 @@ img {
   line-height: 1.45;
 }
 
+/* 見出しに連番は振らない（エッセイの声に合わせ、仕様書的な装飾を外す）。
+   節の区切りは罫線でなく、ゆとりのある余白だけで示す。 */
 .article-body h2 {
-  display: grid;
-  grid-template-columns: 1.65rem minmax(0, 1fr);
-  gap: 0.48rem;
-  align-items: baseline;
-  margin-top: 3.1em;
-  padding-top: 1.15em;
-  border-top: 1px solid var(--line);
+  margin-top: 3.4em;
   font-size: 19px;
-  letter-spacing: 0;
-}
-
-.article-body h2::before {
-  counter-increment: article-section;
-  content: counter(article-section, decimal-leading-zero);
-  color: var(--accent);
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-}
-
-/* 末尾が「補足/Notes」（直後に番号なしリストが続く h2）のときだけ番号を外す。
-   末尾が通常の本文節（次へ 等）でも誤って番号が消えないよう :has() で限定する。 */
-.article-body h2:last-of-type:has(+ ol) {
-  display: block;
-  font-size: 17px;
-}
-
-.article-body h2:last-of-type:has(+ ol)::before {
-  content: none;
 }
 
 .article-body h3 {
