@@ -7,7 +7,7 @@
         <title>{{ page.title }} — {{ config.title }}</title>
         {{ macros::favicon_links() }}
         {{ macros::font_links() }}
-        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="{{ get_url(path='css/style.css', cachebust=true) }}" />
     </head>
     <body>
         <main class="article-wrap background-demo-wrap">
