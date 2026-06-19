@@ -1,6 +1,6 @@
 +++
 title = "05. What Collapses?"
-date = 2026-06-21
+date = 2026-06-18
 description = "When collapse comes, the first thing lost is not the number of individuals but the knowledge."
 [taxonomies]
 topics = ["Artificial Life"]

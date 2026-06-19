@@ -1,6 +1,6 @@
 +++
 title = "00. 一匹を作る"
-date = 2026-06-16
+date = 2026-06-13
 description = "資源があっても群れは崩壊する。その条件を調べるために、まず一匹から作る"
 [taxonomies]
 topics = ["Artificial Life"]

@@ -1,6 +1,6 @@
 +++
 title = "06. 記録と儀礼"
-date = 2026-06-22
+date = 2026-06-19
 description = "知識を教え手の外に置けば、教え手が消えても文化は残るか"
 [taxonomies]
 topics = ["Artificial Life"]

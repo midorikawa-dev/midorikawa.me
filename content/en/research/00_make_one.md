@@ -1,6 +1,6 @@
 +++
 title = "00. Making One Rat"
-date = 2026-06-16
+date = 2026-06-13
 description = "To study collapse when resources are still available, start by making one rat"
 [taxonomies]
 topics = ["Artificial Life"]

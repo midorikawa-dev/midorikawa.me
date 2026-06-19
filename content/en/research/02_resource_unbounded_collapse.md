@@ -1,6 +1,6 @@
 +++
 title = "02. Collapse Without Resource Shortage"
-date = 2026-06-18
+date = 2026-06-15
 description = "Keep food and water available, and make only the capacity for social roles finite"
 [taxonomies]
 topics = ["Artificial Life"]

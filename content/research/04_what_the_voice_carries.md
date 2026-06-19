@@ -1,6 +1,6 @@
 +++
 title = "04. 声は何を運ぶのか"
-date = 2026-06-20
+date = 2026-06-17
 description = "ネズミの声は言葉ではない。運ぶのは、気分と状況だ"
 [taxonomies]
 topics = ["Artificial Life"]

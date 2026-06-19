@@ -1,6 +1,6 @@
 +++
 title = "01. 群れにする"
-date = 2026-06-17
+date = 2026-06-14
 description = "一匹を複数にし、接触、順位、群れ、縄張り、繁殖を同じ更新ループに入れる"
 [taxonomies]
 topics = ["Artificial Life"]

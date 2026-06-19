@@ -1,6 +1,6 @@
 +++
 title = "05. 何が崩壊するのか"
-date = 2026-06-21
+date = 2026-06-18
 description = "崩壊のとき最初に失われるのは、個体の数ではなく知識のほうだ"
 [taxonomies]
 topics = ["Artificial Life"]
