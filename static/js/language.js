@@ -7,13 +7,20 @@
     localStorage.setItem(KEY, explicit);
   }
 
+  const header = document.querySelector(".site-header");
+  const currentLang = header ? header.getAttribute("data-site-lang") || "ja" : "ja";
+
   const preferred = explicit === "ja" || explicit === "en"
     ? explicit
-    : localStorage.getItem(KEY);
+    : localStorage.getItem(KEY) || currentLang;
 
   if (preferred === "ja" || preferred === "en") {
     document.documentElement.dataset.langPreference = preferred;
   }
+
+  document.querySelectorAll("[data-lang-row]").forEach((row) => {
+    row.hidden = row.getAttribute("data-lang-row") !== preferred;
+  });
 
   const brand = document.querySelector(".site-name");
   if (brand && (preferred === "ja" || preferred === "en")) {
@@ -53,10 +60,8 @@
 
   if (preferred !== "ja" && preferred !== "en") return;
 
-  const header = document.querySelector(".site-header");
   if (!header) return;
 
-  const currentLang = header.getAttribute("data-site-lang") || "ja";
   const target = document.querySelector(`[data-language-choice="${preferred}"]`);
   if (!target || preferred === currentLang) return;
 
