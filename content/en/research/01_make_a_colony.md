@@ -10,9 +10,7 @@ alternate_url = "/research/01-make-a-colony/"
 
 More rats do not make a colony. Put many in the same box and you still have several one-rat systems. A colony begins when each rat becomes part of another's input. One rat's position enters another's view. A win changes the next win rate. A smell changes where someone goes. Rank changes who gets to breed.
 
-I don't reproduce collapse here; I build a colony that persists.
-
-And none of the structure is designed. I set only local rules, and watch whether rank, herding, and territory come out on their own.
+I don't reproduce collapse here; first I build a colony that persists. And I design none of the structure. I add one local rule at a time to the apparatus, and watch whether rank, herding, and territory come out on their own.
 
 ## Other rats become input
 
@@ -31,7 +29,7 @@ Approach, avoid, push back, win, lose. Another rat's move becomes my next input.
 
 ## Rank appears
 
-Each rat has a confidence, all nearly equal at the start. Meet at the food area and a scuffle happens: win and confidence rises a little, lose and it drops<sup class="term-note">＊</sup>. I never assign who is on top.
+I add encounters and contests to the apparatus. Each rat has a confidence, all nearly equal at the start. Meet at the food area and a scuffle happens: win and confidence rises a little, lose and it drops<sup class="term-note">＊</sup>. I never assign who is on top.
 
 ```python
 win_rate = sigmoid(a.confidence - b.confidence)
@@ -40,7 +38,7 @@ winner.confidence += delta
 loser.confidence  -= delta
 ```
 
-That alone produced rank. Small differences get amplified through contests. A winner wins more, a loser loses more, until a straight order lines up. The top get into the food area easily, the bottom wait. A social position comes back as a bodily state, hunger.
+Run it, and rank appeared. Small differences get amplified through contests. A winner wins more, a loser loses more, until a straight order lines up. The top get into the food area easily, the bottom wait. A social position comes back as a bodily state, hunger.
 
 <figure>
   <img src="/images/research/rat/01/society_embodied.gif" alt="AI rat colony where rank separates through encounters at the food area">
@@ -49,7 +47,7 @@ That alone produced rank. Small differences get amplified through contests. A wi
 
 ## A herd appears
 
-I added a predator. Again I never wrote "form a group." The predator picks off whoever is alone. A rat that feels danger moves toward nearby rats, and backs off if it gets too close. That's all. The predator comes, distances shrink; it leaves, they scatter to forage. I never set a center. The herd is what's left when each rat lowers its own risk in a world where being alone is dangerous.
+Next I add a predator. I never write "form a group." The predator picks off whoever is alone. A rat that feels danger moves toward nearby rats, and backs off if it gets too close. That's all. Run it, and when the predator comes, distances shrink; when it leaves, they scatter. I never set a center. The herd is what's left when each rat lowers its own risk in a world where being alone is dangerous.
 
 <figure>
   <img src="/images/research/rat/01/herd_embodied.gif" alt="AI rats gathering when a predator approaches">
@@ -58,7 +56,7 @@ I added a predator. Again I never wrote "form a group." The predator picks off w
 
 ## Territory separates
 
-Rank and herding still don't fix who lives where. So I added scent marking<sup class="term-note">＊</sup>. A rat leaves smell where it passes; the smell spreads and fades. It avoids places thick with others' smell and returns to its own. No compartments are given.
+Rank and herding still don't fix who lives where. So I add scent marking<sup class="term-note">＊</sup>. A rat leaves smell where it passes; the smell spreads and fades. It avoids places thick with others' smell and returns to its own. No compartments are given.
 
 ```python
 world.scent[rat.id].add(rat.position)
@@ -76,9 +74,9 @@ The boundary is not a drawn line. Leave smell, avoid others' smell, and each rat
   <figcaption>Territory from scent marking. Without assigned compartments, each rat returns to its own range.</figcaption>
 </figure>
 
-## Rank shapes the next generation
+## Rank reaches reproduction
 
-I tied rank to reproduction. To see whether a colony carries into the next generation, staying alive isn't enough: who leaves offspring, and what they inherit. Each rat carries a competitive trait; higher rank means more offspring, and a child inherits the parent's trait with small changes.
+Last, I tie rank to reproduction. To see whether a colony carries into the next generation, staying alive isn't enough: who leaves offspring, and what they inherit. Each rat carries a competitive trait; higher rank means more offspring, and a child inherits the parent's trait with small changes.
 
 ```python
 parents = select_by_rank(rats)
@@ -87,16 +85,14 @@ for parent in parents:
     next_generation.append(parent.reproduce(mutation=True))
 ```
 
-Now rank is not just a momentary result. It is a variable that changes the next generation. When the top leave more offspring, the average competitive trait drifts across generations. Social structure becomes a condition for evolution.
+Rank is now not just a momentary result. It is a variable that changes the next generation. When the top leave more offspring, the average competitive trait drifts across generations. Social structure becomes a condition for evolution.
 
 <figure>
   <img src="/images/research/rat/01/reproduction.png" alt="Rank-biased reproduction and changes in competitive traits">
   <figcaption>Rank tied to reproduction. When higher-ranking rats leave more offspring, the distribution of competitive traits shifts across generations.</figcaption>
 </figure>
 
-None of it was designed. With only local rules, rank, herding, territory, and evolution came out of the colony on their own.
-
-Next, I look for the conditions under which this colony breaks, with food and water still available.
+I designed none of it. Adding local rules to the apparatus, rank, herding, territory, and evolution came out of the colony. The next apparatus keeps food and water plentiful, and looks for the condition that breaks this colony.
 
 ## Notes
 
