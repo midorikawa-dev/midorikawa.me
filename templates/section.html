@@ -28,7 +28,7 @@
                         <span class="post-main">
                             <span class="post-title">{{ macros::numbered_title(title=page.title) }}</span>
                         </span>
-                        <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
+                        <time>{{ page.date | date(format="%B %d, %Y") }}</time>
                     </a>
                     {% endfor %}
                 </div>

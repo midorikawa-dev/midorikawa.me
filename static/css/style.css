@@ -69,9 +69,7 @@ img {
 }
 
 .site-header {
-  margin-bottom: 46px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--line);
+  margin-bottom: 40px;
 }
 
 .site-header-top {
@@ -235,7 +233,8 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
 }
 
 .title-number {
-  color: inherit;
+  color: var(--muted);
+  font-weight: 400;
 }
 
 .post-title .title-number,
@@ -400,9 +399,7 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
 /* Article */
 
 .article-header {
-  margin-bottom: 46px;
-  padding-bottom: 28px;
-  border-bottom: 1px solid var(--line);
+  margin-bottom: 52px;
 }
 
 .article-topics {
@@ -430,18 +427,20 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
 }
 
 .article-header h1 {
-  max-width: 670px;
-  color: rgba(238, 242, 240, 0.88);
-  font-size: clamp(28px, 4.5vw, 38px);
+  max-width: 640px;
+  color: var(--text);
+  font-size: clamp(25px, 3.4vw, 31px);
   font-weight: 400;
-  line-height: 1.34;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
 }
 
 .article-meta {
-  margin-top: 13px;
+  margin-top: 16px;
   color: var(--faint);
   font-family: var(--font-mono);
   font-size: 12px;
+  letter-spacing: 0.03em;
 }
 
 .article-description {
