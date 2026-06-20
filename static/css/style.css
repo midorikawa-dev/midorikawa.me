@@ -5,20 +5,20 @@
 }
 
 :root {
-  --bg: #201d24;
-  --panel: #18161c;
-  --text: #d3cde2;
-  --text-soft: #c7c3cc;
-  --muted: #a8a8b3;
-  --faint: #75747d;
-  --line: rgba(211, 205, 226, 0.1);
-  --line-strong: #322f38;
-  --accent: #d3cde2;
-  --accent-blue: #b0dbe5;
-  --accent-green: #b0dbe5;
-  --brand-blue: #d3cde2;
-  --brand-green: #b0dbe5;
-  --accent-soft: rgba(211, 205, 226, 0.12);
+  --bg: #181818;
+  --panel: #202020;
+  --text: #e8e8e8;
+  --text-soft: rgba(232, 232, 232, 0.76);
+  --muted: rgba(232, 232, 232, 0.56);
+  --faint: rgba(232, 232, 232, 0.42);
+  --line: rgba(232, 232, 232, 0.11);
+  --line-strong: rgba(232, 232, 232, 0.2);
+  --accent: #e8e8e8;
+  --accent-blue: #d6d6d6;
+  --accent-green: #d6d6d6;
+  --brand-blue: rgba(232, 232, 232, 0.82);
+  --brand-green: rgba(232, 232, 232, 0.82);
+  --accent-soft: rgba(232, 232, 232, 0.12);
   --font-sans: "Inter", "Hiragino Sans", "Yu Gothic", "Yu Gothic UI", "Noto Sans JP", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, "Cascadia Code", Menlo, Consolas, monospace;
   --font-serif: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Yu Mincho", "Noto Serif JP", serif;
@@ -191,14 +191,14 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
 .connect-section a {
   color: var(--text);
   text-decoration: underline;
-  text-decoration-color: rgba(211, 205, 226, 0.32);
+  text-decoration-color: rgba(232, 232, 232, 0.32);
   text-underline-offset: 0.18em;
   text-decoration-thickness: 1px;
 }
 
 .connect-section a:hover {
   color: var(--text);
-  text-decoration-color: rgba(211, 205, 226, 0.58);
+  text-decoration-color: rgba(232, 232, 232, 0.58);
 }
 
 .post-list,
@@ -300,7 +300,7 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
 
 .home-link-title .title-text {
   text-decoration: underline;
-  text-decoration-color: rgba(211, 205, 226, 0.28);
+  text-decoration-color: rgba(232, 232, 232, 0.28);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.15em;
   transition: color 0.16s ease, text-decoration-color 0.16s ease;
@@ -319,7 +319,7 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
 }
 
 .home-link:hover .home-link-title .title-text {
-  text-decoration-color: rgba(211, 205, 226, 0.68);
+  text-decoration-color: rgba(232, 232, 232, 0.68);
 }
 
 .now-section {
@@ -476,7 +476,7 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
 
 .article-body a:hover {
   color: var(--text);
-  text-decoration-color: rgba(211, 205, 226, 0.56);
+  text-decoration-color: rgba(232, 232, 232, 0.56);
 }
 
 .article-body strong {
@@ -516,8 +516,8 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
 .article-body code {
   padding: 0.08em 0.32em;
   border: 1px solid var(--line);
-  background: var(--panel);
-  color: var(--accent-blue);
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--text);
   font-family: var(--font-mono);
   font-size: 0.9em;
 }
@@ -526,8 +526,8 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
   overflow-x: auto;
   margin: 1.55em 0;
   padding: 12px 16px;
-  border: 1px solid var(--line-strong);
-  background: var(--panel) !important;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.035) !important;
   border-radius: 4px;
   font-size: 13px;
   line-height: 24px;
@@ -537,7 +537,6 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
   padding: 0;
   border: 0;
   background: transparent;
-  color: var(--text);
 }
 
 .article-body figure {
@@ -549,7 +548,7 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
   width: 100%;
   border: 1px solid var(--line-strong);
   border-radius: 4px;
-  background: var(--panel);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .article-body figcaption {
@@ -634,12 +633,12 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
   padding: 18px;
   border: 1px solid var(--line);
   border-radius: 6px;
-  background: rgba(24, 22, 28, 0.46);
+  background: rgba(255, 255, 255, 0.025);
 }
 
 .font-card.recommended {
   border-color: var(--line-strong);
-  background: rgba(24, 22, 28, 0.68);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .font-card h2 {
@@ -670,7 +669,7 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
 }
 
 .font-sample .sample-en {
-  color: rgba(199, 195, 204, 0.72);
+  color: rgba(232, 232, 232, 0.72);
 }
 
 .font-sample.sans {
@@ -740,12 +739,12 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
   justify-content: space-between;
   gap: 18px;
   padding: 22px;
-  border-right: 1px solid rgba(211, 205, 226, 0.1);
+  border-right: 1px solid rgba(232, 232, 232, 0.1);
   background: rgba(0, 0, 0, 0.08);
 }
 
 .bg-meta span {
-  color: rgba(211, 205, 226, 0.86);
+  color: rgba(232, 232, 232, 0.86);
   font-size: 15px;
   font-weight: 500;
   line-height: 1.4;
@@ -765,8 +764,8 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
 .bg-sample h2 {
   margin: 0 0 1.3rem;
   padding: 0 0 1.1rem;
-  border-bottom: 1px solid rgba(211, 205, 226, 0.1);
-  color: rgba(211, 205, 226, 0.9);
+  border-bottom: 1px solid rgba(232, 232, 232, 0.1);
+  color: rgba(232, 232, 232, 0.9);
   font-size: 22px;
   font-weight: 500;
   line-height: 1.4;
@@ -774,7 +773,7 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
 
 .bg-sample p {
   max-width: 36rem;
-  color: rgba(199, 195, 204, 0.76);
+  color: rgba(232, 232, 232, 0.76);
   font-size: 16px;
   line-height: 1.92;
 }
@@ -868,7 +867,7 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
     align-items: baseline;
     padding: 16px 18px;
     border-right: 0;
-    border-bottom: 1px solid rgba(211, 205, 226, 0.1);
+    border-bottom: 1px solid rgba(232, 232, 232, 0.1);
   }
 
   .bg-sample {
