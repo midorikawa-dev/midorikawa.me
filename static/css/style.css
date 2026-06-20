@@ -277,8 +277,8 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
 
 .home-columns {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(28px, 6vw, 70px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 6vw, 64px);
   margin-top: 64px;
 }
 
@@ -300,10 +300,19 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
 
 .home-link-title .title-text {
   text-decoration: underline;
-  text-decoration-color: rgba(232, 232, 232, 0.28);
+  text-decoration-color: rgba(211, 205, 226, 0.28);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.15em;
   transition: color 0.16s ease, text-decoration-color 0.16s ease;
+}
+
+.home-link-title .title-number,
+.post-title .title-number {
+  text-decoration: underline;
+  text-decoration-color: rgba(211, 205, 226, 0.28);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+  transition: text-decoration-color 0.16s ease;
 }
 
 .home-link small {
@@ -319,7 +328,12 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
 }
 
 .home-link:hover .home-link-title .title-text {
-  text-decoration-color: rgba(232, 232, 232, 0.68);
+  text-decoration-color: rgba(211, 205, 226, 0.68);
+}
+
+.home-link:hover .home-link-title .title-number,
+.post-row:hover .post-title .title-number {
+  text-decoration-color: rgba(211, 205, 226, 0.68);
 }
 
 .now-section {

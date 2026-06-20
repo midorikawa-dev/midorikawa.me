@@ -11,7 +11,6 @@
     <body>
         {% set projects = get_section(path="projects/_index.md") %}
         {% set research = get_section(path="research/_index.md") %}
-        {% set log = get_section(path="log/_index.md") %}
         <main class="home-wrap">
             {{ macros::site_header(lang="ja", jp_url="/", en_url="/en/") }}
 
@@ -41,20 +40,6 @@
                     <a class="home-link" href="/research/">
                         <span class="home-link-title"><span class="title-text">All writing</span></span>
                         <small>AI Rat の記録を読む。</small>
-                    </a>
-                </div>
-
-                <div class="home-column">
-                    <h2 class="section-label">Log</h2>
-                    {% for page in log.pages | slice(end=2) %}
-                    <a class="home-link" href="{{ page.path }}">
-                        <span class="home-link-title"><span class="title-text">{{ page.title }}</span></span>
-                        {% if page.description %}<small>{{ page.description }}</small>{% endif %}
-                    </a>
-                    {% endfor %}
-                    <a class="home-link" href="/log/">
-                        <span class="home-link-title"><span class="title-text">All log</span></span>
-                        <small>作業と考えの断片。</small>
                     </a>
                 </div>
             </section>
