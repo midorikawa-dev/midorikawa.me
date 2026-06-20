@@ -10,7 +10,7 @@ alternate_url = "/research/00-make-one/"
 
 Plenty of food and water. No predators. You just can't leave. Even so, the colony collapses. That is what happened to Calhoun's Universe 25<sup class="term-note">＊</sup>.
 
-Resources were enough, so why? I want to check it in code. Code that presupposes collapse gives no observation — only an ending decided in advance. So I start upstream.
+Resources were enough, so why? I want to check it in code. Code that presupposes collapse gives no observation, only an ending decided in advance. So I start upstream.
 
 First I build one rat that knows nothing. It moves, presses a lever, takes the result. I never give it the answer. The result only nudges what it picks next.
 

@@ -68,7 +68,7 @@ From this, space split. The boundary is not a drawn line. Leave smell, avoid oth
   <figcaption>Territory from scent marking. Without assigned compartments, each rat returns to its own range.</figcaption>
 </figure>
 
-Last, I tied rank to reproduction. To see whether a colony carries into the next generation, staying alive isn't enough — who leaves offspring, and what the offspring inherit. Each rat carries a competitive trait; higher rank means more offspring, and a child inherits the parent's trait with small changes.
+Last, I tied rank to reproduction. To see whether a colony carries into the next generation, staying alive isn't enough: who leaves offspring, and what they inherit. Each rat carries a competitive trait; higher rank means more offspring, and a child inherits the parent's trait with small changes.
 
 ```python
 parents = select_by_rank(rats)
@@ -86,7 +86,7 @@ Now rank is not just a momentary result. It is a variable that changes the next 
 
 None of it was designed. With only local rules, rank, herding, territory, and evolution came out of the colony on their own.
 
-Next, I look for the conditions under which this colony breaks — with food and water still available.
+Next, I look for the conditions under which this colony breaks, with food and water still available.
 
 ## Notes
 
