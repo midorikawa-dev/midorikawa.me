@@ -8,29 +8,17 @@ lang = "en"
 alternate_url = "/research/02-resource-unbounded-collapse/"
 +++
 
-## Overview
+There was food. There was water. No predators. No way out. By all rights it should have kept growing. Yet Calhoun's Universe 25<sup class="term-note">＊</sup> colony broke before it ever filled up.
 
-There is food. There is water. There are no predators. Nobody can leave. A colony under those conditions seems as if it should keep growing. But it does not. It breaks. And the limiting factor was not food or physical space. It was the capacity for social roles: who can reproduce where, and who can learn from whom.
+What set the ceiling? Not food, not water, not space. Something quieter: who can raise young where, and who can learn from whom — the number of social seats.
 
-In 00 I made one rat. In 01 I turned it into a colony. Now I can finally ask under what condition that colony breaks. The background is Calhoun's Universe 25<sup class="term-note">＊</sup>, but this is not a full reproduction. I narrow the question to one condition: is collapse caused by resource shortage, or by the capacity for social roles?
+In 00 I made one rat. In 01 I made a colony. Now I can finally look for where it breaks. Universe 25 is the backdrop, not something I reproduce. I narrow it to one question. Is collapse set by resources, or by the number of seats?
 
-## Collapse Must Not Be Written In
+Writing collapse into the code is cheating. Make rats stop breeding when crowded, make mothers abandon care, spawn rats that neither fight nor breed past some density — do that and the colony collapses. Of course it does; I inserted it. But then I can't tell whether collapse happened or whether I just pinned a label on it. I want the opposite: no state called "collapse" anywhere in the code, and watch whether it appears on its own from ordinary failures of daily life.
 
-The easiest bad solution is to write collapse directly into the code. If density rises, make rats non-reproductive. Pretend maternal behavior broke. Create beautiful ones<sup class="term-note">＊</sup> with a threshold. Then the colony collapses. Of course it does; collapse was already inserted.
+So first I build a colony that doesn't break. Each rat has a life cycle: mature, take territory, court, give birth, raise young, learn from adults. And ways to fail: no territory, getting isolated, fertility worn down by stress, no nearby adult to learn from. With enough seats, this colony grows, settles, and the young learn. No collapse mechanism anywhere yet.
 
-That does not tell us whether collapse happened or whether I only attached a label. What I needed was a model where no state called collapse exists in the code, and a similar condition appears from ordinary failures in the life cycle.
-
-## Build a Healthy Colony First
-
-So I gave the rats a life cycle. They mature, take territory, court, give birth, raise offspring, and young rats learn social ability from adults. There are also ways to fail: no territory, isolation, chronic stress reducing fertility, or no competent adult nearby for learning.
-
-The important part is that this life cycle does not break by itself. When enough roles exist, the colony grows, stabilizes, offspring learn, and almost no non-reproductive individuals appear.
-
-No mechanism for collapse has been added yet.
-
-## Change Only One Thing
-
-Food and water remain unlimited. The only thing I change is the capacity needed for territory, courtship, parenting, and social learning. The core relationship can be written like this.
+The only thing I change is the number of seats. Food and water stay unlimited; I tighten only the seats that territory, parenting, and learning need. The core is simple.
 
 ```python
 crowding = population / social_role_capacity
@@ -39,59 +27,33 @@ learning_rate = max(0.0, 1.0 - crowding)
 next_competence = learning_rate * competent_adult_ratio
 ```
 
-When capacity is not enough, the share of young rats that can learn from competent adults goes down. Young rats that cannot learn do not become competent adults. Then the next generation has even fewer adults to learn from. The decline comes back across generations.
+If the colony grows while seats stay fixed, the seats per rat run short. Without a seat, a young rat can't learn beside a capable adult. A rat that didn't learn stays poor at it as an adult. So the next generation learns even less. The loss compounds across generations.
 
-## Space Is Still Open, But the Colony Breaks
-
-When the capacity for roles is restricted, the colony collapses. From the outside, many individuals remain. Physical space is not full. But inside the system, more rats fail to take territory, parenting becomes unstable, competent adults decrease, and young rats stop learning.
+Tighten the seats, and the colony collapsed. From outside, plenty of rats remain; the space isn't even full. But inside, more rats fail to take territory, parenting turns unstable, capable adults thin out, and the young stop learning.
 
 <figure>
   <img src="/images/research/rat/02/behavioral_sink.gif" alt="Collapse process in an AI rat colony with finite social-role capacity">
   <figcaption>A condition with finite role capacity. While many individuals remain, the life cycle jams and non-reproductive individuals accumulate.</figcaption>
 </figure>
 
-No one wrote "create beautiful ones" into the code. Still, withdrawn individuals that neither fight nor reproduce appear from the accumulation of failures. That is not a planted label. It is an emergent result.
+Here's the interesting part. Nobody wrote "make rats that neither fight nor breed." Yet those rats appeared on their own, out of accumulated failure — not a planted label, but something that emerged. Close to what Calhoun called beautiful ones<sup class="term-note">＊</sup>. A colony with enough seats survived; a colony with tightened seats collapsed even on unlimited food. The condition for collapse wasn't a resource shortage. It was a shortage of seats.
 
-The comparison is clear. A colony with enough roles continues. A colony with restricted roles collapses even with unlimited food. The condition for collapse is not resource shortage. It is shortage of role capacity.
+**And cutting the food stopped the collapse.** It's counterintuitive — less food should make life harder. But with less food, the population caps earlier, before it overshoots the seats. Abundance doesn't remove every constraint; it only changes which one is left standing last. Here, the last one wasn't food. It was seats.
 
-## Less Food Can Stop the Collapse
-
-Then something strange happens. Limiting food can stop the collapse. That is counterintuitive. Less food should make life harder.
-
-But with less food, population growth hits a ceiling earlier, before it overshoots the capacity for roles. Abundance does not remove every constraint. It changes which constraint remains last. In this model, the last constraint was not food. It was social role capacity.
-
-## Deriving Capacity From the Apparatus
-
-So far, capacity has been given as a number. That is still abstract. In Universe 25, capacity comes from the apparatus: a closed enclosure, nests around the edge, an open central floor, and a boundary that cannot be crossed.
-
-So I stopped giving capacity by hand and let it be determined by which nests could be taken and defended. I did not change the rats. I changed only the shape of the world. As a result, rats that could not take nests spilled into the center. Space was still available. But space that could be used for reproduction and parenting was not.
+Until now I set the seat count by hand. That's still abstract. In Universe 25, the seats come from the apparatus: a closed pen, nests around the edge, an open floor in the middle, a boundary you can't cross. So I stopped handing out seats and let them be decided by which nests a rat could take and hold. I changed nothing about the rats — only the shape of the world. Rats that couldn't take a nest spilled into the middle. The space was open. The space usable for raising young was not.
 
 <figure>
   <img src="/images/research/rat/02/social_niche.gif" alt="AI rats gathering in the center under an apparatus-like environment">
   <figcaption>An apparatus-like condition. Rats that cannot take nests gather in the center, and the shortage of socially usable places becomes visible in space.</figcaption>
 </figure>
 
-Changing the number of nest boxes produced a boundary between conditions that collapsed and conditions that continued. This boundary belongs to this model, but the relationship is clear. Carrying capacity<sup class="term-note">＊</sup> is not decided by food alone. It also depends on who can reproduce where, and who can learn society from whom.
+Vary the number of nests and a boundary appears between sizes that collapse and sizes that survive. That number lives inside the model, not a prediction about the world. Still, the point is clear. Carrying capacity<sup class="term-note">＊</sup> is not set by food alone. It also turns on who can raise young where, and who can learn from whom.
 
-## What Collapsed Was Transmission
+The first thing that broke in this model was not the number of rats. It was the passing-on to the next generation. Numbers linger a while. But capable adults thin out, the young stop learning, and a rat that didn't learn can't become the adult who teaches the next one. Once that loop turns, easing the crowding no longer helps — by then the ones who could teach are gone. The colony's collapse wasn't simply numbers falling. It was the thread to the next generation snapping.
 
-In this model, the first thing to collapse was not population count. It was the transmission of social ability.
+To be clear: this is not a faithful reproduction of Universe 25. The apparatus and the behavior are heavily abstracted, and the interpretation itself is debated. What I show is one hypothesis — in a closed colony with resources removed, a shortage of seats (social roles) can stop the developmental loop of learning and reproduction. The model only makes that hypothesis movable.
 
-The number of individuals remains for a while. But competent adults decrease, young rats stop learning, and those young rats cannot become the adults who teach the next generation. Once this loop begins, the colony cannot easily recover even if density later falls. By then, the adults who can teach are already gone.
-
-Colony collapse is not only a decline in population. It is the breakage of the path that carries ability to the next generation.
-
-## Limits
-
-This is not a complete reproduction of Universe 25. The apparatus and the behavior of mice or rats are heavily abstracted. The interpretation of Universe 25 itself is also debated.
-
-What I show here is one hypothesis: in a closed system where resource constraints are removed, lack of capacity for social roles can break social learning during development and the reproductive life cycle. This model makes that hypothesis movable.
-
-## Next
-
-If the colony breaks because transmission is cut, the next question is simple. What can reconnect that break? Parental investment, kin altruism, or behavior that spends cost even on non-kin?
-
-Next I will handle love, not as a feeling, but as costly helping behavior.
+If what breaks is the passing-on, the question is set. What reconnects it? Investing in your own offspring? Helping blood kin? Or paying a cost even for young that aren't yours? Next, I take that up as love — not as a feeling, but as costly helping.
 
 ## Notes
 

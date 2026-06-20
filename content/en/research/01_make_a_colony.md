@@ -10,7 +10,7 @@ alternate_url = "/research/01-make-a-colony/"
 
 More rats do not make a colony. Put many in the same box and you still have several one-rat systems. A colony begins when each rat becomes part of another's input. One rat's position enters another's view. A win changes the next win rate. A smell changes where someone goes. Rank changes who gets to breed.
 
-I don't add collapse yet. First I want a colony that holds together unless I jam it on purpose. If it broke from the start, I couldn't isolate the cause of collapse later.
+I don't reproduce collapse here; I build a colony that persists.
 
 And none of the structure is designed. I set only local rules, and watch whether rank, herding, and territory come out on their own.
 
