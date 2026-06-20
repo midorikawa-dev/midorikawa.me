@@ -527,10 +527,10 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
   margin: 1.55em 0;
   padding: 12px 16px;
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.035) !important;
+  background: rgba(0, 0, 0, 0.18) !important;
   border-radius: 4px;
-  font-size: 13px;
-  line-height: 24px;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
 .article-body pre code {
@@ -548,7 +548,13 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
   width: 100%;
   border: 1px solid var(--line-strong);
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(0, 0, 0, 0.25);
+  filter: brightness(0.8) saturate(0.9);
+  transition: filter 0.2s ease;
+}
+
+.article-body img:hover {
+  filter: none;
 }
 
 .article-body figcaption {
