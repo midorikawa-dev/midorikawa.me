@@ -39,7 +39,7 @@ The cause was not the learner. It was the input. The rat read only the direction
 
 One input points at many places at once. When the best action for that input flips even once, every place sharing that input breaks at the same time. That is why the drop was sudden, and total.
 
-The fix was one line: add smell strength to the input. Real rats, too, smell more strongly the closer they get.
+The fix was one line: add smell strength to the input. Real rats, too, smell more strongly the closer they get. I changed nothing in the learner.
 
 <figure>
   <img src="/images/research/rat/00/collapse_fix.png" alt="Comparison between direction only and direction plus strength">

@@ -12,9 +12,7 @@ build_search_index = true
 # 2本目の連作が出たら series を再導入する。
 
 [markdown]
-
-[markdown.highlighting]
-theme = "nord"
+# シンタックスハイライトは無効＝コードはモノクロ（CSS で灰色のプレーン表示）。
 
 [extra]
 # Put all your custom variables here
