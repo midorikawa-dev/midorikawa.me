@@ -2,9 +2,6 @@
 title = "01. Making a Colony"
 date = 2026-06-14
 description = "Turn one rat into many, and put contact, rank, herding, territory, and reproduction into the same update loop"
-[taxonomies]
-topics = ["Artificial Life"]
-series = ["AI Rat Colony"]
 
 [extra]
 lang = "en"

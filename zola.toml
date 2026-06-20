@@ -8,10 +8,8 @@ compile_sass = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
-taxonomies = [
-  { name = "topics", feed = false, render = true },
-  { name = "series", feed = false, render = true }
-]
+# タクソノミーは廃止。content は番号順の単一連作で、所属は Projects ページが担う。
+# 2本目の連作が出たら series を再導入する。
 
 [markdown]
 

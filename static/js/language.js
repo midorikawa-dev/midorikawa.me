@@ -30,14 +30,14 @@
   document.querySelectorAll(".site-nav-links > a").forEach((link) => {
     if (preferred !== "ja" && preferred !== "en") return;
     const label = link.textContent.trim();
-    if (label === "Notes") {
+    if (label === "Projects") {
+      link.setAttribute("href", preferred === "en" ? "/en/projects/" : "/projects/");
+    }
+    if (label === "Writing") {
       link.setAttribute("href", preferred === "en" ? "/en/research/" : "/research/");
     }
-    if (label === "Topics") {
-      link.setAttribute("href", preferred === "en" ? "/topics/?lang=en" : "/topics/");
-    }
-    if (label === "Series") {
-      link.setAttribute("href", preferred === "en" ? "/series/?lang=en" : "/series/");
+    if (label === "Log") {
+      link.setAttribute("href", preferred === "en" ? "/en/log/" : "/log/");
     }
   });
 

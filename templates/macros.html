@@ -31,7 +31,7 @@
         </nav>
     </div>
 </header>
-<script src="/js/language.js?v=20260619b" defer></script>
+<script src="/js/language.js?v=20260620a" defer></script>
 {% endmacro site_header %}
 
 {% macro font_links() %}
@@ -47,7 +47,7 @@
 {% macro numbered_title(title) %}
 {% if title is containing(". ") %}
 {% set title_parts = title | split(pat=". ", limit=2) %}
-<span class="title-number">{{ title_parts[0] }}.</span>{{ title_parts[1] }}
+<span class="title-number">{{ title_parts[0] }}.</span><span class="title-text">{{ title_parts[1] }}</span>
 {% else %}
 {{ title }}
 {% endif %}
@@ -55,10 +55,6 @@
 
 {% macro site_footer(lang="ja") %}
 <footer class="site-footer">
-    <nav class="site-footer-links">
-        <a href="{% if lang == "en" %}/topics/?lang=en{% else %}/topics/{% endif %}">Topics</a>
-        <a href="{% if lang == "en" %}/series/?lang=en{% else %}/series/{% endif %}">Series</a>
-    </nav>
-    <span class="site-footer-brand"><span class="brand-m">M</span><span class="brand-star">*</span><span class="brand-two">2</span></span>
+    <span class="site-footer-brand"><span class="brand-m">M</span><span class="brand-star">*</span><span class="brand-two">2</span> · 2026</span>
 </footer>
 {% endmacro site_footer %}

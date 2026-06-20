@@ -2,9 +2,6 @@
 title = "02. 資源不足ではない崩壊"
 date = 2026-06-15
 description = "餌と水は足りたまま、社会の「席」の数だけを絞る"
-[taxonomies]
-topics = ["Artificial Life"]
-series = ["AI Rat Colony"]
 
 [extra]
 lang = "jp"

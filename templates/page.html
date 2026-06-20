@@ -61,22 +61,6 @@
 
             <article class="article">
                 <header class="article-header">
-                    {% set page_topics = page.taxonomies.topics | default(value=[]) %}
-                    {% set page_series = page.taxonomies.series | default(value=[]) %}
-                    {% if page_topics or page_series %}
-                    <div class="article-topics">
-                        {% for topic in page_topics %}
-                        <a href="{{ get_taxonomy_url(kind='topics', name=topic) }}">{{ topic }}</a>
-                        {% endfor %}
-                        {% if page_topics and page_series %}
-                        <span class="article-topic-separator">/</span>
-                        {% endif %}
-                        {% for series in page_series %}
-                        <a href="{{ get_taxonomy_url(kind='series', name=series) }}">{{ series }}</a>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-
                     <h1>{{ macros::numbered_title(title=page.title) }}</h1>
 
                     <div class="article-meta">
@@ -84,11 +68,6 @@
                         <time datetime="{{ page.date }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
                         {% endif %}
                     </div>
-
-                    {% if page.description %}
-                    <p class="article-description">{{ page.description }}</p>
-                    {% endif %}
-
                 </header>
 
                 <div class="article-body">

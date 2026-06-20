@@ -3,9 +3,6 @@ title = "07. 仲間の境界"
 date = 2026-06-18
 description = "AIラット群における非血縁協力と共有タグ"
 draft = true
-[taxonomies]
-topics = ["Artificial Life"]
-series = ["AI Rat Colony"]
 
 [extra]
 lang = "jp"

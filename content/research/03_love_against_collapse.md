@@ -2,9 +2,6 @@
 title = "03. 愛は崩壊を防ぐか"
 date = 2026-06-16
 description = "崩壊を防ぐのは、非血縁にコストを払って助ける行動か"
-[taxonomies]
-topics = ["Artificial Life"]
-series = ["AI Rat Colony"]
 
 [extra]
 lang = "jp"

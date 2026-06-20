@@ -16,69 +16,57 @@
             {{ macros::site_header(lang="ja", jp_url="/", en_url="/en/") }}
 
             <p class="home-intro">
-                Midorikawa Lab。生き物と社会を、コードで作って動かしている。
+                生命・学習・社会・物理を知るために、コードを書いています。
             </p>
-            <p class="home-now">いま — creature-engine を作りながら、AI Rat シリーズを書いている。</p>
 
-            <section class="home-section">
-                <div class="section-head">
-                    <h2 class="section-label">Projects</h2>
-                    <a class="view-all" href="/projects/">view all →</a>
-                </div>
-                <div class="project-list">
+            <section class="home-columns" aria-label="Home links">
+                <div class="home-column">
+                    <h2 class="section-label">Building</h2>
                     {% for p in projects.pages %}
-                    <a class="project-row" href="{{ p.path }}">
-                        <span class="project-main">
-                            <span class="project-name">{{ p.title }}</span>
-                            {% if p.description %}<span class="project-desc">{{ p.description }}</span>{% endif %}
-                        </span>
-                        {% if p.extra.status %}<span class="project-status">{{ p.extra.status }}</span>{% endif %}
+                    <a class="home-link" href="{{ p.path }}">
+                        <span class="home-link-title"><span class="title-text">{{ p.title }}</span></span>
+                        {% if p.description %}<small>{{ p.description }}</small>{% endif %}
                     </a>
                     {% endfor %}
                 </div>
-            </section>
 
-            <section class="home-section">
-                <div class="section-head">
+                <div class="home-column">
                     <h2 class="section-label">Writing</h2>
-                    <a class="view-all" href="/research/">view all →</a>
-                </div>
-                <div class="post-list">
-                    {% for page in research.pages | reverse | slice(end=5) %}
-                    <a class="post-row" href="{{ page.path }}">
-                        <span class="post-main">
-                            <span class="post-title">{{ macros::numbered_title(title=page.title) }}</span>
-                            {% set page_series = page.taxonomies.series | default(value=[]) %}
-                            {% if page_series %}<span class="post-topic">{{ page_series | first }}</span>{% endif %}
-                        </span>
-                        <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
+                    {% for page in research.pages | reverse | slice(end=3) %}
+                    <a class="home-link" href="{{ page.path }}">
+                        <span class="home-link-title">{{ macros::numbered_title(title=page.title) }}</span>
+                        {% if page.description %}<small>{{ page.description }}</small>{% endif %}
                     </a>
                     {% endfor %}
+                    <a class="home-link" href="/research/">
+                        <span class="home-link-title"><span class="title-text">All writing</span></span>
+                        <small>AI Rat の記録を読む。</small>
+                    </a>
+                </div>
+
+                <div class="home-column">
+                    <h2 class="section-label">Log</h2>
+                    {% for page in log.pages | slice(end=2) %}
+                    <a class="home-link" href="{{ page.path }}">
+                        <span class="home-link-title"><span class="title-text">{{ page.title }}</span></span>
+                        {% if page.description %}<small>{{ page.description }}</small>{% endif %}
+                    </a>
+                    {% endfor %}
+                    <a class="home-link" href="/log/">
+                        <span class="home-link-title"><span class="title-text">All log</span></span>
+                        <small>作業と考えの断片。</small>
+                    </a>
                 </div>
             </section>
 
-            {% if log.pages | length > 0 %}
-            <section class="home-section">
-                <div class="section-head">
-                    <h2 class="section-label">Log</h2>
-                    <a class="view-all" href="/log/">view all →</a>
-                </div>
-                <div class="post-list">
-                    {% for page in log.pages | slice(end=4) %}
-                    <a class="post-row" href="{{ page.path }}">
-                        <span class="post-main">
-                            <span class="post-title">{{ page.title }}</span>
-                        </span>
-                        <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
-                    </a>
-                    {% endfor %}
-                </div>
+            <section class="home-section now-section">
+                <h2 class="section-label">Now</h2>
+                <p>creature-engine を作りながら、AI Rat シリーズを書いています。</p>
             </section>
-            {% endif %}
 
             <section class="home-section connect-section">
                 <h2 class="section-label">Connect</h2>
-                <p><a href="https://github.com/midorikawa-dev">GitHub</a> · hello [at] midorikawa.me</p>
+                <p>Reach me at <a href="https://github.com/midorikawa-dev">GitHub</a> or hello [at] midorikawa.me.</p>
             </section>
 
             {{ macros::site_footer(lang="ja") }}

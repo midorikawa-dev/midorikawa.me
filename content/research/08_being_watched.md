@@ -3,9 +3,6 @@ title = "08. 見られていること"
 date = 2026-06-18
 description = "AIラット群におけるフリーライド、評判、協力の維持"
 draft = true
-[taxonomies]
-topics = ["Artificial Life"]
-series = ["AI Rat Colony"]
 
 [extra]
 lang = "jp"

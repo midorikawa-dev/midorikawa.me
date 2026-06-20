@@ -2,9 +2,6 @@
 title = "04. What the Voice Carries"
 date = 2026-06-17
 description = "A rat's voice is not language. What it carries is mood and situation."
-[taxonomies]
-topics = ["Artificial Life"]
-series = ["AI Rat Colony"]
 
 [extra]
 lang = "en"

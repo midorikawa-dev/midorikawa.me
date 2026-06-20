@@ -27,11 +27,6 @@
                     <a class="post-row" href="{{ page.path }}">
                         <span class="post-main">
                             <span class="post-title">{{ macros::numbered_title(title=page.title) }}</span>
-                            {% set page_topics = page.taxonomies.topics | default(value=[]) %}
-                            {% set page_series = page.taxonomies.series | default(value=[]) %}
-                            {% if page_topics or page_series %}
-                            <span class="post-topic">{% if page_topics %}{{ page_topics | first }}{% endif %}{% if page_topics and page_series %} / {% endif %}{% if page_series %}{{ page_series | first }}{% endif %}</span>
-                            {% endif %}
                         </span>
                         <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
                     </a>

@@ -2,9 +2,6 @@
 title = "06. Records and Ritual"
 date = 2026-06-19
 description = "If knowledge is placed outside the teachers, does culture survive even when the teachers are gone?"
-[taxonomies]
-topics = ["Artificial Life"]
-series = ["AI Rat Colony"]
 
 [extra]
 lang = "en"

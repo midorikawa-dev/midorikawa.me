@@ -3,9 +3,6 @@ title = "07. The Length of Memory"
 date = 2026-06-18
 draft = true
 description = "Memory, trust, betrayal, and the stability of cooperation in an artificial rat colony"
-[taxonomies]
-topics = ["Artificial Life"]
-series = ["AI Rat Colony"]
 
 [extra]
 lang = "en"

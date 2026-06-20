@@ -2,9 +2,6 @@
 title = "03. Can Love Prevent Collapse?"
 date = 2026-06-16
 description = "Can collapse be prevented by costly helping behavior toward non-kin?"
-[taxonomies]
-topics = ["Artificial Life"]
-series = ["AI Rat Colony"]
 
 [extra]
 lang = "en"

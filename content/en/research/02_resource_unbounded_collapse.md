@@ -2,9 +2,6 @@
 title = "02. Collapse Without Resource Shortage"
 date = 2026-06-15
 description = "Keep food and water available, and make only the capacity for social roles finite"
-[taxonomies]
-topics = ["Artificial Life"]
-series = ["AI Rat Colony"]
 
 [extra]
 lang = "en"
