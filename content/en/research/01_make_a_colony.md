@@ -36,7 +36,7 @@ winner.confidence += delta
 loser.confidence  -= delta
 ```
 
-That alone produced rank. Small differences get amplified through contests — a winner wins more, a loser loses more — until a straight order lines up. Once rank exists, feeding changes with it: the top get in easily, the bottom wait. A social position comes back as a bodily state, hunger.
+That alone produced rank. Small differences get amplified through contests. A winner wins more, a loser loses more, until a straight order lines up. Once rank exists, feeding changes with it: the top get in easily, the bottom wait. A social position comes back as a bodily state, hunger.
 
 <figure>
   <img src="/images/research/rat/01/society_embodied.gif" alt="AI rat colony where rank separates through encounters at the food area">

@@ -8,7 +8,7 @@ lang = "en"
 alternate_url = "/research/00-make-one/"
 +++
 
-Plenty of food and water. No predators. You just can't leave. Even so, the colony collapses — that is what happened to Calhoun's Universe 25<sup class="term-note">＊</sup>.
+Plenty of food and water. No predators. You just can't leave. Even so, the colony collapses. That is what happened to Calhoun's Universe 25<sup class="term-note">＊</sup>.
 
 Resources were enough, so why? I want to check it in code. Code that presupposes collapse gives no observation — only an ending decided in advance. So I start upstream.
 
@@ -20,7 +20,7 @@ outcome = world.apply(action)
 rat.learn(outcome)
 ```
 
-This short cycle is the base of everything I build later. Senses, needs, voice, the colony — all of it sits on top.
+This short cycle is the base of everything I build later. Senses, needs, voice, the colony: all of it sits on top.
 
 Soon the rat learned: when hungry, go to the lever, press it, eat. Its daily balance moved from nearly starving to positive. At least inside this small box, it can keep itself alive.
 
@@ -31,7 +31,7 @@ Soon the rat learned: when hungry, go to the lever, press it, eat. Its daily bal
 
 It was working, I thought.
 
-**On day 800, the score suddenly dropped to zero.**
+On day 800, the score suddenly dropped to zero.
 
 I suspected exploration noise, but no. Stop the learning, only evaluate, and it still failed at the same spot. What had broken was the way it chose actions.
 
