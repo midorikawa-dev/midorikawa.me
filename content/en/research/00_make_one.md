@@ -46,7 +46,7 @@ The fix was one line: add smell strength to the input. Real rats, too, smell mor
   <figcaption>Direction only (before) and direction plus strength (after). The deep collapse is gone, and the oscillation is cut roughly in half.</figcaption>
 </figure>
 
-Fix the input before you fix the model. Are things that should be distinct ending up as the same value? I check this every time I add a new sense. It became a rule.
+Fix the input before you fix the model. Are things that should be distinct ending up as the same value? I check this every time I add a new sense.
 
 Next, I grow this one rat into a colony.
 

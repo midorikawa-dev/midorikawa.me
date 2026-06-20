@@ -14,6 +14,8 @@ I don't reproduce collapse here; I build a colony that persists.
 
 And none of the structure is designed. I set only local rules, and watch whether rank, herding, and territory come out on their own.
 
+## Other rats become input
+
 The starting point is the single rat from before. The difference: results no longer come only from the world, but from other rats too.
 
 ```python
@@ -27,7 +29,9 @@ for a, b in world.encounters():
 
 Approach, avoid, push back, win, lose. Another rat's move becomes my next input. From here, a rat adapts not only to the world but to its neighbors.
 
-First I added encounters and contests. Each rat has a confidence, all nearly equal at the start. Meet at the food area and a scuffle happens: win and confidence rises a little, lose and it drops<sup class="term-note">＊</sup>. I never assign who is on top.
+## Rank appears
+
+Each rat has a confidence, all nearly equal at the start. Meet at the food area and a scuffle happens: win and confidence rises a little, lose and it drops<sup class="term-note">＊</sup>. I never assign who is on top.
 
 ```python
 win_rate = sigmoid(a.confidence - b.confidence)
@@ -36,19 +40,23 @@ winner.confidence += delta
 loser.confidence  -= delta
 ```
 
-That alone produced rank. Small differences get amplified through contests. A winner wins more, a loser loses more, until a straight order lines up. Once rank exists, feeding changes with it: the top get in easily, the bottom wait. A social position comes back as a bodily state, hunger.
+That alone produced rank. Small differences get amplified through contests. A winner wins more, a loser loses more, until a straight order lines up. The top get into the food area easily, the bottom wait. A social position comes back as a bodily state, hunger.
 
 <figure>
   <img src="/images/research/rat/01/society_embodied.gif" alt="AI rat colony where rank separates through encounters at the food area">
   <figcaption>Encounters at the food area. Rank lines up from wins and losses, and higher-ranking rats get easier access to food.</figcaption>
 </figure>
 
-Next I added a predator. Again I never wrote "form a group." The predator picks off whoever is alone. A rat that feels danger moves toward nearby rats, and backs off if it gets too close. That's all. The predator comes, distances shrink; it leaves, they scatter to forage. I never set a center. The group is what's left when each rat lowers its own risk in a world where being alone is dangerous.
+## A herd appears
+
+I added a predator. Again I never wrote "form a group." The predator picks off whoever is alone. A rat that feels danger moves toward nearby rats, and backs off if it gets too close. That's all. The predator comes, distances shrink; it leaves, they scatter to forage. I never set a center. The herd is what's left when each rat lowers its own risk in a world where being alone is dangerous.
 
 <figure>
   <img src="/images/research/rat/01/herd_embodied.gif" alt="AI rats gathering when a predator approaches">
   <figcaption>When the predator appears, the rats gather; when it leaves, they scatter. Herding comes from lowering the risk of being alone.</figcaption>
 </figure>
+
+## Territory separates
 
 Rank and herding still don't fix who lives where. So I added scent marking<sup class="term-note">＊</sup>. A rat leaves smell where it passes; the smell spreads and fades. It avoids places thick with others' smell and returns to its own. No compartments are given.
 
@@ -61,14 +69,16 @@ other = world.other_scent(rat).at(rat.position)
 rat.move_toward(own - other)
 ```
 
-From this, space split. The boundary is not a drawn line. Leave smell, avoid others' smell, and each rat's usable range separates on its own.
+The boundary is not a drawn line. Leave smell, avoid others' smell, and each rat's usable range separates on its own.
 
 <figure>
   <img src="/images/research/rat/01/territory.gif" alt="Territories separating through scent marking">
   <figcaption>Territory from scent marking. Without assigned compartments, each rat returns to its own range.</figcaption>
 </figure>
 
-Last, I tied rank to reproduction. To see whether a colony carries into the next generation, staying alive isn't enough: who leaves offspring, and what they inherit. Each rat carries a competitive trait; higher rank means more offspring, and a child inherits the parent's trait with small changes.
+## Rank shapes the next generation
+
+I tied rank to reproduction. To see whether a colony carries into the next generation, staying alive isn't enough: who leaves offspring, and what they inherit. Each rat carries a competitive trait; higher rank means more offspring, and a child inherits the parent's trait with small changes.
 
 ```python
 parents = select_by_rank(rats)
