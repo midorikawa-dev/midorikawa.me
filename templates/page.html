@@ -65,7 +65,13 @@
 
                     <div class="article-meta">
                         {% if page.date %}
-                        <time datetime="{{ page.date }}">{{ page.date | date(format="%B %d, %Y") }}</time>
+                        <time datetime="{{ page.date }}">
+                            {% if is_en %}
+                                {{ page.date | date(format="%B %d, %Y") }}
+                            {% else %}
+                                {{ page.date | date(format="%Y-%m-%d") }}
+                            {% endif %}
+                        </time>
                         {% endif %}
                     </div>
                 </header>
