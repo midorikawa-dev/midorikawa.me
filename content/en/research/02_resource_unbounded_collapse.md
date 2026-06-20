@@ -14,7 +14,7 @@ What set the ceiling? Not food, not water, not space. Who can raise young where,
 
 In 00 I made one rat. In 01 I made a colony. Now I look for where it breaks. One question. Is collapse set by resources, or by capacity?
 
-Writing collapse into the code is cheating. Say "stop breeding when crowded" and the colony collapses. Of course it does; I inserted it, and it tells me nothing. So I do the opposite. I write no collapse anywhere, and watch whether it appears on its own from ordinary failures of daily life.
+Write collapse into the code, and it is no longer an observation. Say "stop breeding when crowded" and the colony collapses. So I write collapse nowhere, and watch whether it appears on its own from ordinary failures of daily life.
 
 First, a colony that doesn't break. Each rat has a life cycle: grow up, take territory, give birth, raise young, learn from adults. And ways to stumble: no territory, getting isolated, fertility worn down by stress, no adult nearby to learn from. With enough capacity, the colony grows, settles, and the young learn. No collapse mechanism yet.
 
@@ -36,7 +36,7 @@ Tighten the capacity, and the colony collapsed. From outside, plenty of rats rem
   <figcaption>A condition with finite capacity. While many individuals remain, the life cycle jams and non-reproductive individuals accumulate.</figcaption>
 </figure>
 
-Here's the interesting part. Nobody wrote "make rats that neither fight nor breed." Yet those rats appeared on their own, out of accumulated failure. Close to what Calhoun called beautiful ones<sup class="term-note">＊</sup>. Enough capacity and the colony survived; tightened capacity and it collapsed, even on unlimited food. The condition for collapse wasn't resources. It was capacity.
+Nobody wrote "make rats that neither fight nor breed." Yet those rats appeared on their own, out of accumulated failure. Close to what Calhoun called beautiful ones<sup class="term-note">＊</sup>. Enough capacity and the colony survived; tightened capacity and it collapsed, even on unlimited food. The condition for collapse wasn't resources. It was capacity.
 
 And cutting the food stopped the collapse.
 
