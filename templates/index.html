@@ -23,7 +23,7 @@
                 <div class="home-column">
                     <h2 class="section-label">Building</h2>
                     {% for p in projects.pages %}
-                    <a class="home-link" href="{{ p.path }}">
+                    <a class="home-link" href="{% if p.extra.link %}{{ p.extra.link }}{% else %}{{ p.path }}{% endif %}">
                         <span class="home-link-title"><span class="title-text">{{ p.title }}</span></span>
                         {% if p.description %}<small>{{ p.description }}</small>{% endif %}
                     </a>

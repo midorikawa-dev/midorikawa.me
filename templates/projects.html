@@ -20,7 +20,7 @@
                 <h1 class="section-label">{{ section.title }}</h1>
                 <div class="project-list">
                     {% for p in section.pages %}
-                    <a class="project-row" href="{{ p.path }}">
+                    <a class="project-row" href="{% if p.extra.link %}{{ p.extra.link }}{% else %}{{ p.path }}{% endif %}">
                         <span class="project-main">
                             <span class="project-name">{{ p.title }}</span>
                             {% if p.description %}<span class="project-desc">{{ p.description }}</span>{% endif %}
