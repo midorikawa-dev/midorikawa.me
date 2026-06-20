@@ -1,7 +1,7 @@
 +++
 title = "07. 仲間の境界"
 date = 2026-06-18
-description = "AIラット群における非血縁協力と共有タグ"
+description = "ラット群における非血縁協力と共有タグ"
 draft = true
 
 [extra]
@@ -21,7 +21,7 @@ alternate_url = "/en/research/03-boundary-of-companions/"
 
 血縁ではない相手を、何が仲間に変えるのか。同じ名前、同じタグ、同じ記憶、同じ物語を持つことは、助ける相手の範囲を広げるのか。
 
-AIラット群に、個体が持つ共有タグ<sup class="term-note">＊</sup>を導入し、血縁だけではない協力が群れの崩壊を抑えるかを調べた。
+ラット群に、個体が持つ共有タグ<sup class="term-note">＊</sup>を導入し、血縁だけではない協力が群れの崩壊を抑えるかを調べた。
 
 ## 問い
 
@@ -115,7 +115,7 @@ if same_group {
 これは、無条件の愛<sup class="term-note">＊</sup>に近い条件と同程度、あるいはそれ以上に崩壊を抑えた。
 
 <figure>
-  <img src="/images/research/rat/03/shared_myth.png" alt="打算、血縁のみ、同じタグを共有する条件におけるAIラット群の崩壊率比較">
+  <img src="/images/research/rat/03/shared_myth.png" alt="打算、血縁のみ、同じタグを共有する条件におけるラット群の崩壊率比較">
   <figcaption>16箱条件での比較。同じタグが群れの中で共有されると、血縁を超えた協力が生まれ、崩壊率が下がった。</figcaption>
 </figure>
 
@@ -126,7 +126,7 @@ if same_group {
 そのとき、血縁ではない個体同士も、同じ仲間として扱われる。
 
 <figure>
-  <img src="/images/research/rat/03/shared_myth.gif" alt="ばらばらのタグを持つAIラット群がひとつのタグへ収束していくシミュレーション">
+  <img src="/images/research/rat/03/shared_myth.gif" alt="ばらばらのタグを持つラット群がひとつのタグへ収束していくシミュレーション">
   <figcaption>個体の色は持っているタグを表す。最初はばらばらだったタグが群れの中で共有され、非血縁の協力が広がる。</figcaption>
 </figure>
 

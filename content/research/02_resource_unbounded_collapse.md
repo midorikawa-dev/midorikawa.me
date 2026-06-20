@@ -32,7 +32,7 @@ next_competence = learning_rate * competent_adult_ratio
 厳しい数値設定では、群れは崩壊した。外から見れば、まだ個体は多い。空間も空いている。なのに中では、縄張りを取れず、子育てが不安定になり、頼れる大人が減り、子が学べなくなる。
 
 <figure>
-  <img src="/images/research/rat/02/behavioral_sink.gif" alt="社会の受け入れ能力を絞ったAIラット群の崩壊過程">
+  <img src="/images/research/rat/02/behavioral_sink.gif" alt="社会の受け入れ能力を絞ったラット群の崩壊過程">
   <figcaption>受け入れ能力を絞った条件。個体はまだ残っているのに、暮らしのサイクルが詰まり、行き場のない個体が溜まっていく。</figcaption>
 </figure>
 
@@ -45,7 +45,7 @@ next_competence = learning_rate * competent_adult_ratio
 次に、装置そのものを変える。受け入れ能力を数で与えるのをやめ、巣の配置から決まるようにした。閉じた囲い、まわりに並ぶ巣、まん中の開けた床。個体は変えない。変えたのは世界の形だけ。すると、巣を取れない個体が、まん中に溢れた。空間は空いている。なのに、子育てに使える場所がない。
 
 <figure>
-  <img src="/images/research/rat/02/social_niche.gif" alt="物理装置に寄せた環境で中央に集まるAIラット群">
+  <img src="/images/research/rat/02/social_niche.gif" alt="物理装置に寄せた環境で中央に集まるラット群">
   <figcaption>装置に寄せた条件。巣を取れない個体がまん中に集まり、社会的に使える場所の不足が空間に現れる。</figcaption>
 </figure>
 

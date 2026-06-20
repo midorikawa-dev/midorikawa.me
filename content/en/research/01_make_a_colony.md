@@ -41,7 +41,7 @@ loser.confidence  -= delta
 Run it, and rank appeared. Small differences get amplified through contests. A winner wins more, a loser loses more, until a straight order lines up. The top get into the food area easily, the bottom wait. A social position comes back as a bodily state, hunger.
 
 <figure>
-  <img src="/images/research/rat/01/society_embodied.gif" alt="AI rat colony where rank separates through encounters at the food area">
+  <img src="/images/research/rat/01/society_embodied.gif" alt="rat colony where rank separates through encounters at the food area">
   <figcaption>Encounters at the food area. Rank lines up from wins and losses, and higher-ranking rats get easier access to food.</figcaption>
 </figure>
 
@@ -50,7 +50,7 @@ Run it, and rank appeared. Small differences get amplified through contests. A w
 Next I add a predator. I never write "form a group." The predator picks off whoever is alone. A rat that feels danger moves toward nearby rats, and backs off if it gets too close. That's all. Run it, and when the predator comes, distances shrink; when it leaves, they scatter. I never set a center. The herd is what's left when each rat lowers its own risk in a world where being alone is dangerous.
 
 <figure>
-  <img src="/images/research/rat/01/herd_embodied.gif" alt="AI rats gathering when a predator approaches">
+  <img src="/images/research/rat/01/herd_embodied.gif" alt="rats gathering when a predator approaches">
   <figcaption>When the predator appears, the rats gather; when it leaves, they scatter. Herding comes from lowering the risk of being alone.</figcaption>
 </figure>
 

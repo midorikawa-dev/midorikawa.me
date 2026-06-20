@@ -49,7 +49,7 @@ Run it, and the love condition broke less easily. To avoid collapse, the self-in
 Run the same small apparatus side by side and the difference shows. The self-interested one rises, then jams. The love one keeps its transmission, and the colony stays.
 
 <figure>
-  <img src="/images/research/rat/03/love.gif" alt="Simulation comparing self-interest and love conditions in an AI rat colony">
+  <img src="/images/research/rat/03/love.gif" alt="Simulation comparing self-interest and love conditions in a rat colony">
   <figcaption>The same apparatus under two conditions. The self-interested one collapses. The love one survives.</figcaption>
 </figure>
 

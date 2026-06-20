@@ -1,5 +1,5 @@
 +++
-title = "AI Rat Colony"
+title = "Artificial Rats"
 description = "崩壊と文化を、最小のネズミの群れで実験する研究シリーズ。"
 weight = 2
 [extra]

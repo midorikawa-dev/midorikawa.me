@@ -41,7 +41,7 @@ loser.confidence  -= delta
 走らせると、順位ができた。小さな差が勝ち負けで増幅され、勝った個体はますます勝ち、負けた個体はますます負ける。やがて、まっすぐな順位が並ぶ。上位は餌場に入りやすく、下位は待たされる。社会の上下が、空腹という体の状態で返ってくる。
 
 <figure>
-  <img src="/images/research/rat/01/society_embodied.gif" alt="餌場での接触から順位が分かれるAIラット群">
+  <img src="/images/research/rat/01/society_embodied.gif" alt="餌場での接触から順位が分かれるラット群">
   <figcaption>餌場で出会う群れ。勝ち負けの積み重ねから順位が並び、上位ほど餌場に入りやすくなる。</figcaption>
 </figure>
 
@@ -50,7 +50,7 @@ loser.confidence  -= delta
 次に、捕食者を足す。「群れろ」とは書かない。捕食者は、はぐれた個体を狙う。個体は、危ないと感じたら近くの仲間に寄り、近づきすぎたら避ける。それだけ。走らせると、捕食者が来れば距離が縮み、去れば散る。群れの中心も決めていない。はぐれると危ない状況で、それぞれが自分の危険を下げた結果、群れになった。
 
 <figure>
-  <img src="/images/research/rat/01/herd_embodied.gif" alt="捕食者の接近で集まるAIラット群">
+  <img src="/images/research/rat/01/herd_embodied.gif" alt="捕食者の接近で集まるラット群">
   <figcaption>捕食者が来ると密集し、去ると散る。群れは、はぐれる危険を下げる行動から生まれる。</figcaption>
 </figure>
 

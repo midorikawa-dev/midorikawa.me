@@ -1,7 +1,7 @@
 +++
 title = "08. 見られていること"
 date = 2026-06-18
-description = "AIラット群におけるフリーライド、評判、協力の維持"
+description = "ラット群におけるフリーライド、評判、協力の維持"
 draft = true
 
 [extra]
@@ -129,7 +129,7 @@ let cheating_gain = received_help - penalty;
 さらに、死後にも評価が残る条件を加えると、絶滅率がもっとも下がった。
 
 <figure>
-  <img src="/images/research/rat/04/religion.png" alt="監視なし、近くの監視、どこでも見られている条件、死後評価を比較したAIラット群の結果">
+  <img src="/images/research/rat/04/religion.png" alt="監視なし、近くの監視、どこでも見られている条件、死後評価を比較したラット群の結果">
   <figcaption>16箱条件での比較。どこでも見られている条件では協力が保たれ、死後評価を加えると絶滅率がさらに下がった。</figcaption>
 </figure>
 
@@ -140,7 +140,7 @@ let cheating_gain = received_help - penalty;
 どこでも見られている世界では、裏切りが罰され、協力する個体が残る。
 
 <figure>
-  <img src="/images/research/rat/04/religion.gif" alt="監視なしとどこでも見られている条件を比較したAIラット群のシミュレーション">
+  <img src="/images/research/rat/04/religion.gif" alt="監視なしとどこでも見られている条件を比較したラット群のシミュレーション">
   <figcaption>同じ群れでの比較。監視なしでは裏切りが広がり、どこでも見られている条件では協力が維持される。</figcaption>
 </figure>
 
@@ -202,7 +202,7 @@ let cheating_gain = received_help - penalty;
 
 群れはなぜ崩壊するのか。何が伝達をつなぎ直すのか。誰を仲間として扱うのか。協力はどう保たれるのか。
 
-次稿では、この一連のモデルをまとめ、AIラット群を使って何を見ようとしているのかを整理する。
+次稿では、この一連のモデルをまとめ、ラット群を使って何を見ようとしているのかを整理する。
 
 ## 補足
 

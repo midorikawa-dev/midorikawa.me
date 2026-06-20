@@ -1,5 +1,5 @@
 +++
-title = "AI Rat Colony"
+title = "Artificial Rats"
 description = "A research series experimenting with collapse and culture in a minimal colony of rats."
 weight = 2
 [extra]

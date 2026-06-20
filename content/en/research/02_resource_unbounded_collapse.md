@@ -32,7 +32,7 @@ If the colony grows while capacity stays fixed, there is less to go around. With
 Tighten the capacity, and the colony collapsed. From outside, plenty of rats remain; the space is open. But inside, rats fail to take territory, parenting turns unstable, capable adults thin out, and the young stop learning.
 
 <figure>
-  <img src="/images/research/rat/02/behavioral_sink.gif" alt="Collapse process in an AI rat colony with finite capacity for social roles">
+  <img src="/images/research/rat/02/behavioral_sink.gif" alt="Collapse process in a rat colony with finite capacity for social roles">
   <figcaption>A condition with finite capacity. While many individuals remain, the life cycle jams and non-reproductive individuals accumulate.</figcaption>
 </figure>
 
@@ -45,7 +45,7 @@ It's counterintuitive. But with less food, the population caps earlier, before i
 Next I change the apparatus itself. Instead of giving capacity as a number, I let it come from the nest layout: a closed pen, nests around the edge, an open floor in the middle. I change nothing about the rats, only the shape of the world. Run it, and rats that couldn't take a nest spilled into the middle. The space was open. The space for raising young was not.
 
 <figure>
-  <img src="/images/research/rat/02/social_niche.gif" alt="AI rats gathering in the center under an apparatus-like environment">
+  <img src="/images/research/rat/02/social_niche.gif" alt="rats gathering in the center under an apparatus-like environment">
   <figcaption>An apparatus-like condition. Rats that cannot take nests gather in the center, and the shortage of socially usable places becomes visible in space.</figcaption>
 </figure>
 

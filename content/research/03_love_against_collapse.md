@@ -42,14 +42,14 @@ def will_help(self, other):
 走らせると、愛のある装置のほうが壊れにくかった。打算だけの装置が崩壊を免れるには、巣が32ほど要る。血縁だけも、ほぼ同じ。つながらない相手も助ける装置では、それが16まで下がった。同じ閉じた環境を、より少ない巣で持ちこたえる。
 
 <figure>
-  <img src="/images/research/rat/03/love.png" alt="打算、血縁のみ、愛の条件におけるAIラット群の崩壊率比較">
+  <img src="/images/research/rat/03/love.png" alt="打算、血縁のみ、愛の条件におけるラット群の崩壊率比較">
   <figcaption>打算・血縁だけ・愛の比較。つながらない相手まで助ける条件では、壊れずに持ちこたえる装置が、より小さくて済む。</figcaption>
 </figure>
 
 同じ小さい装置で並べて走らせると、差はもっと見える。打算の装置は、個体が増えたあとに暮らしが詰まって崩れる。愛のある装置は、同じ形でも伝達が保たれて、群れが残る。
 
 <figure>
-  <img src="/images/research/rat/03/love.gif" alt="打算の世界と愛のある世界を比較したAIラット群のシミュレーション">
+  <img src="/images/research/rat/03/love.gif" alt="打算の世界と愛のある世界を比較したラット群のシミュレーション">
   <figcaption>同じ装置での比較。打算の装置は崩れ、愛のある装置は群れが残る。</figcaption>
 </figure>
 
