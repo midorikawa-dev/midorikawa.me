@@ -16,13 +16,15 @@ I don't reproduce collapse here; first I build a colony that persists. And I des
 
 The starting point is the single rat from before. The difference: results no longer come only from the world, but from other rats too.
 
-```python
-for rat in rats:
-    rat.act(world.observe(rat))
+```julia
+for rat in rats
+    act!(rat, observe(world, rat))
+end
 
-for a, b in world.encounters():
-    a.learn(contest(a, b))
-    b.learn(contest(b, a))
+for (a, b) in encounters(world)
+    learn!(a, contest(a, b))
+    learn!(b, contest(b, a))
+end
 ```
 
 Approach, avoid, push back, win, lose. Another rat's move becomes my next input. From here, a rat adapts not only to the world but to its neighbors.
@@ -31,7 +33,7 @@ Approach, avoid, push back, win, lose. Another rat's move becomes my next input.
 
 I add encounters and contests to the apparatus. Each rat has a confidence, all nearly equal at the start. Meet at the food area and a scuffle happens: win and confidence rises a little, lose and it drops<sup class="term-note">＊</sup>. I never assign who is on top.
 
-```python
+```julia
 win_rate = sigmoid(a.confidence - b.confidence)
 winner, loser = contest(a, b, win_rate)
 winner.confidence += delta
@@ -58,13 +60,13 @@ Next I add a predator. I never write "form a group." The predator picks off whoe
 
 Rank and herding still don't fix who lives where. So I add scent marking<sup class="term-note">＊</sup>. A rat leaves smell where it passes; the smell spreads and fades. It avoids places thick with others' smell and returns to its own. No compartments are given.
 
-```python
-world.scent[rat.id].add(rat.position)
+```julia
+push!(world.scent[rat.id], rat.position)
 
-own   = world.scent[rat.id].at(rat.position)
-other = world.other_scent(rat).at(rat.position)
+own   = world.scent[rat.id][rat.position]
+other = other_scent(world, rat)[rat.position]
 
-rat.move_toward(own - other)
+move_toward!(rat, own - other)
 ```
 
 The boundary is not a drawn line. Leave smell, avoid others' smell, and each rat's usable range separates on its own.
@@ -78,11 +80,12 @@ The boundary is not a drawn line. Leave smell, avoid others' smell, and each rat
 
 Last, I tie rank to reproduction. To see whether a colony carries into the next generation, staying alive isn't enough: who leaves offspring, and what they inherit. Each rat carries a competitive trait; higher rank means more offspring, and a child inherits the parent's trait with small changes.
 
-```python
+```julia
 parents = select_by_rank(rats)
 
-for parent in parents:
-    next_generation.append(parent.reproduce(mutation=True))
+for parent in parents
+    push!(next_generation, reproduce(parent; mutation=true))
+end
 ```
 
 Rank is now not just a momentary result. It is a variable that changes the next generation. When the top leave more offspring, the average competitive trait drifts across generations. Social structure becomes a condition for evolution.

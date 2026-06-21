@@ -30,9 +30,10 @@ Each has a cost for the helper: time, and a slightly lower chance to reproduce. 
 
 Same environment, same food and water, same apparatus. The only change is who receives help. Self-interest: only yourself and your own young. Kin altruism<sup class="term-note">＊</sup>: blood kin too. Love: non-kin too.
 
-```python
-def will_help(self, other):
-    return other.is_my_child or other.is_kin or self.love_reaches_non_kin
+```julia
+function will_help(self, other)
+    return other.is_my_child || other.is_kin || self.love_reaches_non_kin
+end
 ```
 
 Widen the range of help and the young get more chances to learn, and ability carries to the next generation. That difference is what I measure.

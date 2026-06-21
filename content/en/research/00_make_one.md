@@ -14,10 +14,10 @@ But I won't build the collapse directly. Write collapse into the code and it is 
 
 I put one rat in a box. It knows neither where the food is nor what the lever does. All it can do is try. It moves, presses a lever, takes the result. The result only nudges what it picks next.
 
-```python
-action = rat.choose_action(world)
-outcome = world.apply(action)
-rat.learn(outcome)
+```julia
+action = choose_action(rat, world)
+outcome = apply(world, action)
+learn!(rat, outcome)
 ```
 
 I never give it the answer. I just run this short loop, the base of everything I build later. After a while, the rat learned: when hungry, go to the lever, press it, eat. Its daily balance moved from nearly starving to positive.

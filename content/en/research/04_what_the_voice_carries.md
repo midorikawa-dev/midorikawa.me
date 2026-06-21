@@ -29,15 +29,17 @@ The higher calls have finer shapes: flat, upward, downward, arched, trilled, aro
 
 What matters is what the voice does not carry. It is not language. It does not carry a contentful sentence like "there is a snake to the right." What it carries is the sender's state: afraid, or calm. The one who hears reads that mood and reacts. Hear 22kHz and flee; hear 50kHz and approach. It does not read content; it senses the other's state.
 
-```python
-def speak(self):
+```julia
+function speak(self)
     # The voice comes from internal state (affect), not a proposition.
-    band = "22kHz" if self.valence < 0 else "50kHz"
-    return Call(band=band, syllable=self.pick_syllable())
+    band = self.valence < 0 ? "22kHz" : "50kHz"
+    return Call(band=band, syllable=pick_syllable(self))
+end
 
-def hear(self, call):
+function hear(self, call)
     # The hearer reacts to the other's state, not to the content.
-    self.flee() if call.band == "22kHz" else self.approach()
+    call.band == "22kHz" ? flee!(self) : approach!(self)
+end
 ```
 
 Compared to human language, this may look thin. Even so, it can do a great deal. Danger spreads through the colony in an instant, and calm sets the mood of a place.

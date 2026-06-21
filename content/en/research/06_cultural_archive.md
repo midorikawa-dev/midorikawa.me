@@ -20,14 +20,15 @@ To the voice-only apparatus I add an external record<sup class="term-note">＊</
 
 But a record fades if left alone. With no readers and no writers, it is gradually lost. So I add ritual<sup class="term-note">＊</sup>. When everyone repeats the same thing, the record is kept even without specialists.
 
-```python
+```julia
 # The "number of teachers" needed to learn is met by both living adults and the record.
-demonstrators = living_teachers(item) + record.strength(item)
+demonstrators = living_teachers(item) + record.strength[item]
 item.alive = demonstrators >= item.teachers_needed
 
 record.strength[item] -= decay        # a record fades if left alone
-if ritual.repeats(item):
+if repeats(ritual, item)
     record.strength[item] = FULL      # ritual = everyone repeating keeps the record full
+end
 ```
 
 ## Records alone keep half

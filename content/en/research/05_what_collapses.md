@@ -20,12 +20,14 @@ This is known in human culture too. The more complex a tool or skill becomes, th
 
 Here I add no new apparatus. I add a measurement. Each cultural item carries a number of teachers needed to keep it. Simple items survive with only a few; complex items cannot survive without many.
 
-```python
-def maintain(item, adults):
+```julia
+function maintain(item, adults)
     # If too few teachers know the item, no one can learn it, and it is simply lost (never rebuilt).
-    if count_who_know(item, adults) < item.teachers_needed:
-        item.alive = False
+    if count_who_know(item, adults) < item.teachers_needed
+        item.alive = false
+    end
     return item.alive
+end
 ```
 
 ## Bodies return, knowledge does not

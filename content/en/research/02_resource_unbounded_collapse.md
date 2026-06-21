@@ -20,7 +20,7 @@ First I build a colony that doesn't break. Each rat has a life cycle: grow up, t
 
 The only thing I change in the apparatus is the capacity. Food and water stay unlimited; I tighten only the room that territory, parenting, and learning need.
 
-```python
+```julia
 crowding = population / social_role_capacity
 learning_rate = max(0.0, 1.0 - crowding)
 
