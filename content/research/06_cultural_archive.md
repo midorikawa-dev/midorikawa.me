@@ -20,14 +20,15 @@ alternate_url = "/en/research/06-cultural-archive/"
 
 ただし、記録は放っておくと薄れる。読み手も書き手もいなければ、だんだん失われていく。そこで、儀礼<sup class="term-note">＊</sup>を足す。皆で同じことを繰り返すと、専門家がいなくても、記録が保たれる。
 
-```python
+```julia
 # 学ぶのに必要な「教え手の数」を、生きた大人と記録の両方で満たす
-demonstrators = living_teachers(item) + record.strength(item)
+demonstrators = living_teachers(item) + record.strength[item]
 item.alive = demonstrators >= item.teachers_needed
 
 record.strength[item] -= decay        # 記録は放っておくと薄れる
-if ritual.repeats(item):
+if repeats(ritual, item)
     record.strength[item] = FULL      # 儀礼＝皆で繰り返すと、記録が保たれる
+end
 ```
 
 ## 記録だけでは、半分
@@ -40,7 +41,7 @@ if ritual.repeats(item):
 
 <figure>
   <img src="/images/research/rat/06/cultural_archive.png" alt="口伝えだけ3.1、もろい記録5.0、記録＋儀礼10.0。教え手が崩れても記録は満タンのまま">
-  <figcaption>崩壊する装置での比較。口伝えだけは3.1、もろい記録は5.0、記録＋儀礼は10.0。右では、教え手（橙）が崩れて波打っても、記録の中の項目（緑）は満タンのまま。</figcaption>
+  <figcaption>崩壊する装置での比較。口伝えだけは3.1、もろい記録は5.0、記録＋儀礼は10.0。右では、教え手（オレンジ）が崩れて波打っても、記録の中の項目（緑）は満タンのまま。</figcaption>
 </figure>
 
 理由は、右のグラフに出ている。生きた教え手の数は、相変わらず崩れて波打っている。なのに、記録の中の項目は満タンのまま。記録は、疲れない、死なない教え手。

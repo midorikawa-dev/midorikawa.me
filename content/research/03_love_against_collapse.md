@@ -30,9 +30,10 @@ alternate_url = "/en/research/03-love-against-collapse/"
 
 同じ環境、同じ餌と水、同じ装置。変えるのは、誰を助けるかだけ。打算は、自分と自分の子だけ。血縁<sup class="term-note">＊</sup>は、血のつながった相手まで。愛は、つながらない相手も助ける。
 
-```python
-def will_help(self, other):
-    return other.is_my_child or other.is_kin or self.love_reaches_non_kin
+```julia
+function will_help(self, other)
+    return other.is_my_child || other.is_kin || self.love_reaches_non_kin
+end
 ```
 
 助ける範囲が広がれば、子が学べる機会が増え、次の世代に力が残る。見るのは、その差。

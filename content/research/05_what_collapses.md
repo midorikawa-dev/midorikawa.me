@@ -16,16 +16,18 @@ alternate_url = "/en/research/05-what-collapses/"
 
 声の「語彙」は、生まれつき持っているものではない。子が大人から学んで受け継ぐ、文化。複雑な知識ほど、保つのに手がいる。
 
-これは人の文化でも知られている。道具や技術が複雑になるほど、それを次の世代へ伝えるには、見せて教えられる人が一定数いる。教え手が足りないと、複雑なものから順に、作り直されないまま消えていく<sup class="term-note">＊</sup>。
+教え手が足りないと、複雑なものから順に、作り直されないまま消えていく<sup class="term-note">＊</sup>。
 
 ここでは、新しい装置は足さない。代わりに、測るものを足す。文化の項目それぞれに、保つのに必要な教え手の数を持たせる。簡単な項目は、少人数でも保てる。複雑な項目は、多くの教え手がいないと保てない。
 
-```python
-def maintain(item, adults):
+```julia
+function maintain(item, adults)
     # 項目を知っている教え手が足りなければ、誰も学べず、そのまま失われる（作り直しはしない）
-    if count_who_know(item, adults) < item.teachers_needed:
-        item.alive = False
+    if count_who_know(item, adults) < item.teachers_needed
+        item.alive = false
+    end
     return item.alive
+end
 ```
 
 ## 体は戻る、知識は戻らない
@@ -36,7 +38,7 @@ def maintain(item, adults):
 
 <figure>
   <img src="/images/research/rat/05/knowledge_extinction.png" alt="崩壊時に体は波のように戻るが、文化は段差で減って戻らない">
-  <figcaption>崩壊のとき。体（灰）は波のように戻るが、文化（赤）は段差で減って戻らない。教え手（橙）も追いつかない。右はピーク比で、体45%・教え手20%・知識24%。</figcaption>
+  <figcaption>崩壊のとき。体（グレー）は波のように戻るが、文化（赤）は段差で減って戻らない。教え手（オレンジ）も追いつかない。右はピーク比で、体45%・教え手20%・知識24%。</figcaption>
 </figure>
 
 数字で見ると、はっきりする。余地が足りる群れは、文化を10のうち10保った。崩壊した群れは、生き延びても2.4しか残らない。ピークと比べると、体は45%戻ったのに、教え手は20%、知識は24%。体のほうが戻りやすく、知識のほうが先に死ぬ。

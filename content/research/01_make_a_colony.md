@@ -16,13 +16,15 @@ alternate_url = "/en/research/01-make-a-colony/"
 
 出発点は、前の一匹と同じ。違うのは、結果を返すのが世界だけでなく、他の個体にもなることだ。
 
-```python
-for rat in rats:
-    rat.act(world.observe(rat))
+```julia
+for rat in rats
+    act!(rat, observe(world, rat))
+end
 
-for a, b in world.encounters():
-    a.learn(contest(a, b))
-    b.learn(contest(b, a))
+for (a, b) in encounters(world)
+    learn!(a, contest(a, b))
+    learn!(b, contest(b, a))
+end
 ```
 
 近づく、避ける、押し返す、勝つ、負ける。相手の動きが、自分の次の入力になる。これで一匹は、世界だけでなく仲間にも合わせて動く。
@@ -31,7 +33,7 @@ for a, b in world.encounters():
 
 装置に、出会いと勝ち負けを足す。各個体に「自信」を持たせ、餌場で出くわすと小競り合いになる。勝てば自信が少し上がり、負ければ少し下がる<sup class="term-note">＊</sup>。誰が上かは、決めない。
 
-```python
+```julia
 win_rate = sigmoid(a.confidence - b.confidence)
 winner, loser = contest(a, b, win_rate)
 winner.confidence += delta
@@ -58,13 +60,13 @@ loser.confidence  -= delta
 
 順位と群れだけでは、どの個体がどこを使うかは決まらない。そこで、匂いのマーキング<sup class="term-note">＊</sup>を足す。各個体は通った場所に匂いを残す。匂いは広がり、薄れる。他の匂いが濃い場所を避け、自分の匂いが残る場所に戻る。区画は与えない。
 
-```python
-world.scent[rat.id].add(rat.position)
+```julia
+push!(world.scent[rat.id], rat.position)
 
-own   = world.scent[rat.id].at(rat.position)
-other = world.other_scent(rat).at(rat.position)
+own   = world.scent[rat.id][rat.position]
+other = other_scent(world, rat)[rat.position]
 
-rat.move_toward(own - other)
+move_toward!(rat, own - other)
 ```
 
 境界は、線として引いたものではない。匂いを残し、他を避けるだけで、使える範囲がひとりでに分かれる。
@@ -78,11 +80,12 @@ rat.move_toward(own - other)
 
 最後に、順位を繁殖につなぐ。群れが次の世代へ続くかを見るには、生きているだけでは足りない。誰が子を残し、子が何を受け継ぐか。各個体に「競争の強さ」を持たせ、順位が高いほど子を残しやすくし、子は親の形質を少し変えて受け継ぐ。
 
-```python
+```julia
 parents = select_by_rank(rats)
 
-for parent in parents:
-    next_generation.append(parent.reproduce(mutation=True))
+for parent in parents
+    push!(next_generation, reproduce(parent; mutation=true))
+end
 ```
 
 順位は、その場の勝ち負けではなく、次の世代の中身を変える変数になった。上位がたくさん子を残せば、競争の強さの平均が世代を超えて動く。社会の構造が、進化の条件になる。

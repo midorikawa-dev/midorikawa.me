@@ -14,10 +14,10 @@ alternate_url = "/en/research/00-make-one/"
 
 一匹を、箱に入れる。餌の場所も、レバーの意味も知らない。できるのは、試すことだけ。歩いて、レバーを押して、結果を受け取る。その結果で、次の選び方だけが少し変わる。
 
-```python
-action = rat.choose_action(world)
-outcome = world.apply(action)
-rat.learn(outcome)
+```julia
+action = choose_action(rat, world)
+outcome = apply(world, action)
+learn!(rat, outcome)
 ```
 
 正解は教えない。この短い循環を、ただ回す。それが、あとで作るものすべての土台になる。しばらく走らせると、一匹は、腹が減るとレバーへ行き、押して、食べるようになった。一日の収支は、餓死寸前の赤字から黒字へ。

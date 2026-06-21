@@ -20,7 +20,7 @@ alternate_url = "/en/research/02-resource-unbounded-collapse/"
 
 装置で変えるのは、受け入れ能力だけ。餌も水も無制限のまま、縄張りや子育てや学びが成り立つ余地だけを絞る。
 
-```python
+```julia
 crowding = population / social_role_capacity
 learning_rate = max(0.0, 1.0 - crowding)
 

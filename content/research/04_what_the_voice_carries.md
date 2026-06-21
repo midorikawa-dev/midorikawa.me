@@ -29,15 +29,17 @@ alternate_url = "/en/research/04-what-the-voice-carries/"
 
 大事なのは、何を運んでいないか。この声は、言葉ではない。「右にヘビがいる」のような、中身のある文は運ばない。運ぶのは、送り手の状態。怖がっているのか、落ち着いているのか。聞いた側は、その気分を読み取って反応する。22kHzを聞けば逃げ、50kHzを聞けば近づく。中身を読むのではなく、相手の状態を察する。
 
-```python
-def speak(self):
+```julia
+function speak(self)
     # 声は内部状態（情動）から出る。命題ではない。
-    band = "22kHz" if self.valence < 0 else "50kHz"
-    return Call(band=band, syllable=self.pick_syllable())
+    band = self.valence < 0 ? "22kHz" : "50kHz"
+    return Call(band=band, syllable=pick_syllable(self))
+end
 
-def hear(self, call):
+function hear(self, call)
     # 聞いた側は、中身ではなく相手の状態に反応する
-    self.flee() if call.band == "22kHz" else self.approach()
+    call.band == "22kHz" ? flee!(self) : approach!(self)
+end
 ```
 
 人の言葉と比べると、薄く見えるかもしれない。それでも、これで多くのことができる。危険が群れの中を一瞬で伝わり、安心が場の空気を作る。
