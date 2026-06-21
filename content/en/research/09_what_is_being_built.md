@@ -1,199 +1,60 @@
 +++
 title = "09. What Is Being Built?"
-date = 2026-06-18
-draft = true
-description = "Treating the artificial rat colony as a model for changing conditions, not as a reproduction of an experiment"
+date = 2026-06-22
+description = "What I am building is not a reproduction of rats. It is a small observation device that moves the conditions for whether a colony collapses or holds."
 
 [extra]
 lang = "en"
 alternate_url = "/research/09-what-is-being-built/"
 +++
 
-## Overview
+From 00 to 08, I started with one rat, built a colony, broke it, and tied it back together. At the end, I want to set out what I have been building.
 
-So far, the artificial rat colony has been used to think about collapse, care, companions, reputation, experience, memory, and space.
+What I am building is not a reproduction of rats. It is a small observation device that moves the conditions one at a time and watches whether the colony collapses or holds. Each time I added an apparatus, the edge of collapse moved, and I read how it moved. Not reproduction, but ordering.
 
-This final note organizes what is being built.
+## As a single arc
 
-It is not a reproduction of a rat experiment.
+It looks like scattered experiments, but they are connected.
 
-It is not a direct copy of a real colony.
+In 00 and 01, I made one rat and added only local rules. Rank, colony, territory, and breeding came out from the colony's side without being designed. A structure I did not design stands up: emergence<sup class="term-note">＊</sup>.
 
-What is being built here is a model whose conditions can be changed.
+In 02, I broke that colony. Even when food is enough, it collapses once the society's capacity for social roles runs out. The first thing to break is not the number of individuals but what gets passed to the next generation. In 03, when help reached even those with no connection, and teaching in particular, collapse drew further off.
 
-Which condition allows cooperation to remain?
+From 04 to 06, I followed that "thing being passed." What is passed rides on the voice (04), dies together with the teacher who knows it (05), and outlives the teacher once it becomes records and ritual (06). In 07, when the same tag was shared, mutual help reached beyond kinship. In 08, when individuals were watched, free riding was held down, and cooperation remained.
 
-Which condition makes the colony collapse?
+Inside this arc, I also moved the ability that changes with experience, the length of memory, and the design of space. But that strays a little from the main thread; it is the back side of the model. So I kept it separate from the main text. I kept them in an appendix.
 
-The model is a tool for observing those questions through code.
+None of these are separate stories. Within the same colony, the force that breaks and the force that connects act on each other.
 
-## Question
+## Moving things, as a method
 
-What is this sequence of notes trying to show?
+A model<sup class="term-note">＊</sup> makes reality small. Made small, what I changed becomes visible.
 
-A colony can collapse even when resources are sufficient.
+I do not write collapse into the device directly. Write "no young when crowded," and that is not an observation but a decided ending. So I write collapse nowhere, move one condition, and watch whether it appears on its own. Change the resources. Change the range of love. Change the tag. Change the records. Change the way they are watched. Each time, the colony's behavior changes.
 
-Changing the reach of care changes the form of cooperation.
-
-Changing the boundary of companions changes the range of helping.
-
-Being watched suppresses betrayal.
-
-Experience changes individual behavior.
-
-The length of memory changes the balance between cooperation and repair.
-
-Space changes patterns of encounter.
-
-These are not separate stories.
-
-They affect one another inside the same colony.
-
-## Not Reproduction
-
-Real rats have bodies.
-
-They have smell.
-
-They have sound.
-
-They develop.
-
-They become tired.
-
-The artificial rats in this note do not include most of that.
-
-Therefore, this model cannot directly explain real rats.
-
-What is being observed is not reality itself, but conditions under which relations collapse or remain.
-
-It is not reproduction. It is organization.
-
-## As Model
-
-A model makes reality smaller.
-
-By making it smaller, it becomes easier to see what was changed.
-
-Change resources.
-
-Change the reach of care.
-
-Change boundaries.
-
-Change reputation.
-
-Change memory.
-
-Change the box.
-
-Each time, the behavior of the colony changes.
-
-The structure can be as small as this.
-
-```rust
-let question = Question::new("when does cooperation remain?");
-let colony = Colony::new(space, rats);
-let result = simulate(colony, question);
+```julia
+# Don't write the answer. Move one condition and watch whether the colony collapses or holds.
+colony = Colony(space, rats)
+for condition in [:capacity, :love, :tag, :record, :watching]
+    result = simulate(colony; vary = condition)
+    observe(result)
+end
 ```
 
-The important point is not having the answer from the beginning.
+What matters is not holding the answer from the start. It is being able to see, with the eyes, what changes when a condition is moved.
 
-It is being able to observe what changes when conditions are changed.
+## Not reproduction, but ordering
 
-## As Artificial Life
+Real rats have bodies, smells, voices, development, and fatigue. The rats here have little of that. So this model cannot explain real rats directly. What I am watching is not reality itself but the conditions under which relations collapse or remain.
 
-This attempt is also close to artificial life.
+This attempt is also close to artificial life<sup class="term-note">＊</sup>. But the goal is not to build a whole living thing. I place a simple individual, give it an environment, update its behavior, and let experience accumulate. From that repetition, I watch whether colony-like behavior comes out. I do not want to judge whether it is alive. I want to see from what conditions the things that look like life and society stand up.
 
-But the goal is not to completely build a living thing.
+What is love. What is a companion. What is trust. What is collapse. I cannot define these at once. But I can place them as variables. I can place them, move them, break them, repair them, and look again. As the smallest device for that, I am building a colony of rats.
 
-Place simple individuals.
-
-Give them an environment.
-
-Update their actions.
-
-Let experience remain.
-
-Then observe whether colony-like behavior appears through repetition.
-
-The goal is not to decide whether it is alive.
-
-The goal is to see what conditions can give rise to something that looks like life or society.
-
-## As Tool
-
-This model is not a conclusion.
-
-It is a tool.
-
-By writing code, relations that remain vague in language can be moved.
-
-What is care?
-
-What is a companion?
-
-What is trust?
-
-What is collapse?
-
-These cannot be fully defined at once.
-
-But they can be placed as variables.
-
-They can be placed, moved, broken, repaired, and observed again.
-
-The artificial rat colony is being built as a minimal device for that work.
-
-## Summary
-
-This sequence of notes was not about rats themselves.
-
-It was about the conditions of a colony.
-
-Individuals increase.
-
-Roles are lost.
-
-Care reaches someone.
-
-The boundary of companions changes.
-
-Individuals are watched.
-
-They experience.
-
-They remember.
-
-They forget.
-
-They meet in space.
-
-Through those combinations, a colony remains or collapses.
-
-The artificial rat colony is a small observation device for that change.
-
-## Next Question
-
-From here, the work splits into two directions.
-
-One is making the model more precise.
-
-The other is organizing the observed results in language.
-
-Voice, signals, smell, and bodily detail are not treated in this sequence yet.
-
-They should be handled separately in the next stage.
-
-How should equations, code, images, and logs be connected?
-
-What should be published as notes, and what should be separated as implementation logs?
-
-The next task is to decide that format.
+From here, it splits in two: making the model more accurate, and turning what was seen into words. Body, smell, sound, development. There are still many details I have not put in. Even so, whether the colony remains or collapses, and what works at that edge, can already be moved and seen. The colony of rats is a small observation device for that.
 
 ## Notes
 
-1. Reproduction: A direct copy of an experiment or phenomenon. In this note, the artificial rat colony is treated as an abstraction for studying conditions, not as reproduction.
-2. Model: A reduced structure that extracts part of reality and makes it possible to change variables.
-3. Artificial life: A field that studies life-like behavior through artificial environments or computation.
-4. Tool: Used here as a small device for thinking.
+1. Emergence: When the whole structure that was not designed (rank, colony, territory, and so on) stands up from simple local rules.
+2. Model: Something that takes out only part of reality and makes it movable as variables. Unlike reproduction, it is a tool for seeing the correspondence between the conditions changed and the results.
+3. Artificial life: The field that studies life-like behavior within artificial environments or computation. The name was set up by Langton and others, and it includes even "life as it could be."

@@ -16,9 +16,9 @@ The answer first: it does not come back. More precisely, the number of bodies re
 
 The "vocabulary" of the voice is not something a rat is born with. It is culture, inherited as the young learn from adults. And the more complex the knowledge, the more users it takes to keep it alive.
 
-This is known in human culture too. The more complex a tool or skill becomes, the more people who can demonstrate and teach it you need to pass it on. When there are too few teachers, the most complex things go first, lost without being rebuilt<sup class="term-note">＊</sup>.
+When there are too few teachers, the most complex things go first, lost without being rebuilt<sup class="term-note">＊</sup>.
 
-Here I add no new apparatus. I add a measurement. Each cultural item carries a number of teachers needed to keep it. Simple items survive with only a few; complex items cannot survive without many.
+Here I add no new apparatus. I add a measurement. Each cultural item carries a number of teachers needed to keep it. The condition for an item to survive comes down to a single inequality: 〈the number of teachers who know it〉 ≥ 〈the number needed〉. Simple items meet it with only a few; complex items cannot without many. Fall below, and no one can learn it; it is simply lost.
 
 ```julia
 function maintain(item, adults)
@@ -54,7 +54,7 @@ Count from the outside and the rats are still there. But inside, what can be pas
   <figcaption>The culture of the voice turns gray from the most complex items first. The bodies are still there, but the song grows quiet.</figcaption>
 </figure>
 
-The "culture" here is not a claim that real rats build up anything this complex. A culture that accumulates complexity is where this model steps one pace beyond actual rats. Read it as a thought experiment with a minimal intelligent individual wearing a rat's skin. Even so, something is visible. The recovery of bodies and the loss of knowledge run at different speeds. The count can return while the knowledge does not.
+The "culture" here is not a claim that real rats build up anything this complex. A culture that accumulates complexity is where this model steps one pace beyond actual rats. Even so, something is visible. The recovery of bodies and the loss of knowledge run at different speeds. The count can return while the knowledge does not.
 
 If knowledge dies together with its living teachers, I can ask: can knowledge be placed outside the teachers? Can it be kept, written down somewhere or repeated by everyone, so that it survives even when the individuals who remembered it are gone? The next apparatus takes up records and ritual.
 

@@ -16,6 +16,8 @@ In 00 I made one rat. In 01 I made a colony. Now I look for where it breaks. One
 
 I never write collapse into the apparatus. Say "stop breeding when crowded" and the colony collapses, but that is not an observation; it is an ending decided in advance. So I write no collapse anywhere, and watch whether it appears on its own from ordinary failures of daily life.
 
+## Tighten only the capacity
+
 First I build a colony that doesn't break. Each rat has a life cycle: grow up, take territory, give birth, raise young, learn from adults. And ways to stumble: no territory, getting isolated, fertility worn down by stress, no adult nearby to learn from. With enough capacity, the colony grows, settles, and the young learn. No collapse mechanism yet.
 
 The only thing I change in the apparatus is the capacity. Food and water stay unlimited; I tighten only the room that territory, parenting, and learning need.
@@ -38,9 +40,13 @@ Tighten the capacity, and the colony collapsed. From outside, plenty of rats rem
 
 Nobody wrote "make rats that neither fight nor breed." Yet those rats appeared on their own, out of accumulated failure. Close to what Calhoun called beautiful ones<sup class="term-note">＊</sup>. Enough capacity and the colony survived; tightened capacity and it collapsed, even on unlimited food. The condition for collapse was not a resource shortage. It was capacity.
 
+## Cut the food, and collapse stops
+
 Now I change one more condition: I cut the food. The collapse stopped.
 
 It's counterintuitive. But with less food, the population caps earlier, before it overshoots the capacity. Abundance doesn't remove constraints; it only changes which one is left standing last. The last one was not food. It was capacity.
+
+## Nest layout decides collapse
 
 Next I change the apparatus itself. Instead of giving capacity as a number, I let it come from the nest layout: a closed pen, nests around the edge, an open floor in the middle. I change nothing about the rats, only the shape of the world. Run it, and rats that couldn't take a nest spilled into the middle. The space was open. The space for raising young was not.
 
@@ -50,6 +56,8 @@ Next I change the apparatus itself. Instead of giving capacity as a number, I le
 </figure>
 
 Vary the number of nests and a boundary appears between sizes that collapse and sizes that survive. Carrying capacity<sup class="term-note">＊</sup> is not set by food alone. It also turns on who can raise young where, and who can learn from whom.
+
+## Collapse is a thread snapping
 
 The first thing that broke was not the number of rats. It was the passing-on to the next generation. Numbers linger a while. But those who could teach thin out, the young stop learning, and they can't become the ones who teach next. Once that loop turns, easing the crowding no longer helps. The ones who could teach are already gone.
 

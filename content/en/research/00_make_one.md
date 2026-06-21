@@ -12,6 +12,8 @@ Food and water are plentiful. No predators. And still a colony of rats breaks. T
 
 But I won't build the collapse directly. Write collapse into the code and it is no longer an observation; it is an ending decided in advance. So I start far upstream. The smallest apparatus is a single rat.
 
+One note up front. The rats here are not a reproduction of real ones. They are minimal individuals wearing a rat's skin, a thought experiment for seeing the conditions under which a society breaks or holds. The code, too, is not a running implementation but conceptual pseudocode meant to show an idea. This holds for the whole series, so I won't repeat it again.
+
 I put one rat in a box. It knows neither where the food is nor what the lever does. All it can do is try. It moves, presses a lever, takes the result. The result only nudges what it picks next.
 
 ```julia

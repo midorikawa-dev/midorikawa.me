@@ -40,7 +40,7 @@ Widen the range of help and the young get more chances to learn, and ability car
 
 ## Love prevented collapse
 
-Run it, and the love condition broke less easily. To avoid collapse, the self-interested apparatus needed about 32 nest boxes. Kin-only was about the same. When help reached non-kin, it dropped to about 16. The same closed environment held together with fewer boxes.
+Run it, and the love condition broke less easily. Whether a colony collapses turns on a threshold in the number of nests: fall below it and it breaks, meet it and it holds. For the self-interested apparatus that threshold was about 32 nest boxes. Kin-only was about the same. When help reached non-kin, it dropped to about 16. Love halved the line.
 
 <figure>
   <img src="/images/research/rat/03/love.png" alt="Collapse-rate comparison between self-interest, kin-only help, and love conditions">

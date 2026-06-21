@@ -52,7 +52,7 @@ What happened here is a small but large turn. Knowledge was cut loose from the l
 
 By voice, knowledge dies with the individual. But put it into a record and keep it by everyone repeating it, and the knowledge outlives those individuals. Even when the teachers are replaced all at once, the culture does not break. This is a wall against the collapse seen from 02 through 05, built from the side of culture. Writing things down, and everyone repeating them: these two protect the colony from the rupture between generations.
 
-The record and ritual here are fairly abstract mechanisms. Real rats do not have writing. Still, there is a seed. The scent marking from 01 was a kind of primitive record, placing information outside the individual. Even so, accumulating external records and ritual are where this model steps beyond actual rats. As usual, read it as a thought experiment with a minimal individual wearing a rat's skin.
+The record and ritual here are fairly abstract mechanisms. Real rats do not have writing. Still, there is a seed. The scent marking from 01 was a kind of primitive record, placing information outside the individual. Even so, accumulating external records and ritual are where this model steps beyond actual rats.
 
 A record can carry not only knowledge but also stories. Sharing the same record, everyone repeating the same thing, might change who is counted as one of us. In 03, helping non-kin prevented collapse. But why help? What turns a stranger into one of us? The next apparatus takes up the boundary of companions.
 
