@@ -31,11 +31,16 @@
 
                 <div class="home-column">
                     <h2 class="section-label">Writing</h2>
-                    {% for page in research.pages | reverse | slice(end=3) %}
+                    {# 本編の末尾3本だけ。補遺（タイトルが「補遺」始まり）はトップに出さない。 #}
+                    {% set_global shown = 0 %}
+                    {% for page in research.pages | reverse %}
+                    {% if shown < 3 and page.title is not starting_with("補遺") %}
                     <a class="home-link" href="{{ page.path }}">
                         <span class="home-link-title">{{ macros::numbered_title(title=page.title) }}</span>
                         {% if page.description %}<small>{{ page.description }}</small>{% endif %}
                     </a>
+                    {% set_global shown = shown + 1 %}
+                    {% endif %}
                     {% endfor %}
                     <a class="home-link" href="/research/">
                         <span class="home-link-title"><span class="title-text">All writing</span></span>
