@@ -259,12 +259,23 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
 
 /* Home hub */
 
+.home-identity {
+  max-width: 38rem;
+}
+
+.home-name {
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
 .home-intro {
   max-width: 34rem;
-  margin-top: 14px;
+  margin-top: 18px;
   color: var(--text-soft);
   font-size: 17px;
-  line-height: 1.7;
+  line-height: 1.72;
 }
 
 .home-now {
@@ -275,15 +286,73 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
   letter-spacing: 0.01em;
 }
 
-.home-columns {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(28px, 6vw, 64px);
-  margin-top: 64px;
+.section-intro {
+  max-width: 37rem;
+  margin: 0 0 22px;
+  color: var(--text-soft);
+  font-size: 16px;
+  line-height: 1.75;
 }
 
-.home-column {
+.featured-project {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 240px);
+  gap: 24px;
+  align-items: center;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.featured-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   min-width: 0;
+}
+
+.featured-title {
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.featured-desc {
+  color: var(--text-soft);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.featured-link {
+  margin-top: 4px;
+  color: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.5;
+  transition: color 0.16s ease;
+}
+
+.featured-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.2);
+  filter: brightness(0.82) saturate(0.92);
+  transition: border-color 0.16s ease, filter 0.16s ease;
+}
+
+.featured-project:hover .featured-link,
+.featured-project:hover .featured-title {
+  color: var(--text);
+}
+
+.featured-project:hover .featured-media img {
+  border-color: var(--line-strong);
+  filter: brightness(0.94) saturate(1);
 }
 
 .home-link {
@@ -842,14 +911,13 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
     font-size: 13px;
   }
 
-  .home-columns {
-    grid-template-columns: 1fr;
-    gap: 34px;
-    margin-top: 48px;
-  }
-
   .home-link {
     margin-top: 16px;
+  }
+
+  .featured-project {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .now-section {

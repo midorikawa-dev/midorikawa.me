@@ -14,45 +14,77 @@
         <main class="home-wrap">
             {{ macros::site_header(lang="ja", jp_url="/", en_url="/en/") }}
 
-            <p class="home-intro">
-                生命・学習・社会・物理を知るために、コードを書いています。
-            </p>
+            <section class="home-identity" aria-label="Profile">
+                <p class="home-name">Mao Midorikawa</p>
+                <p class="home-intro">
+                    生命・学習・社会・物理を理解するために、コードを書いています。
+                </p>
+            </section>
 
-            <section class="home-columns" aria-label="Home links">
-                <div class="home-column">
-                    <h2 class="section-label">Building</h2>
-                    {% for p in projects.pages %}
-                    <a class="home-link" href="{% if p.extra.link %}{{ p.extra.link }}{% else %}{{ p.path }}{% endif %}">
-                        <span class="home-link-title"><span class="title-text">{{ p.title }}</span></span>
-                        {% if p.description %}<small>{{ p.description }}</small>{% endif %}
-                    </a>
-                    {% endfor %}
-                </div>
+            <section class="home-section">
+                <h2 class="section-label">Featured</h2>
+                <a class="featured-project" href="/research/00-make-one/">
+                    <span class="featured-copy">
+                        <span class="featured-title">AI Rat Colony</span>
+                        <span class="featured-desc">
+                            Universe 25 から始めて、崩壊、伝達、協力を小さな人工生命の群れで動かして見る。
+                        </span>
+                        <span class="featured-link">Start with 00. 一匹を作る</span>
+                    </span>
+                    <span class="featured-media">
+                        <img src="/images/research/rat/01/herd_embodied.gif" alt="複数の AI ラットが同じ箱の中で動く様子" loading="lazy" />
+                    </span>
+                </a>
+            </section>
 
-                <div class="home-column">
+            <section class="home-section">
+                <div class="section-head">
                     <h2 class="section-label">Writing</h2>
-                    {# 本編の末尾3本だけ。補遺（タイトルが「補遺」始まり）はトップに出さない。 #}
+                    <a class="view-all" href="/research/">All writing</a>
+                </div>
+                <div class="post-list">
                     {% set_global shown = 0 %}
-                    {% for page in research.pages | reverse %}
-                    {% if shown < 3 and page.title is not starting_with("補遺") %}
-                    <a class="home-link" href="{{ page.path }}">
-                        <span class="home-link-title">{{ macros::numbered_title(title=page.title) }}</span>
-                        {% if page.description %}<small>{{ page.description }}</small>{% endif %}
+                    {% for page in research.pages %}
+                    {% if shown < 5 and page.slug is not starting_with("a") %}
+                    <a class="post-row" href="{{ page.path }}">
+                        <span class="post-main">
+                            <span class="post-title">{{ macros::numbered_title(title=page.title) }}</span>
+                        </span>
+                        {% if page.date %}<time>{{ page.date | date(format="%Y-%m-%d") }}</time>{% endif %}
                     </a>
                     {% set_global shown = shown + 1 %}
                     {% endif %}
                     {% endfor %}
-                    <a class="home-link" href="/research/">
-                        <span class="home-link-title"><span class="title-text">All writing</span></span>
-                    </a>
                 </div>
+            </section>
+
+            <section class="home-section">
+                <div class="section-head">
+                    <h2 class="section-label">Projects</h2>
+                    <a class="view-all" href="/projects/">All projects</a>
+                </div>
+                <div class="project-list home-project-list">
+                    {% for p in projects.pages %}
+                    <a class="project-row" href="{% if p.extra.link %}{{ p.extra.link }}{% else %}{{ p.path }}{% endif %}">
+                        <span class="project-main">
+                            <span class="project-name">{{ p.title }}</span>
+                            {% if p.description %}<span class="project-desc">{{ p.description }}</span>{% endif %}
+                        </span>
+                        {% if p.extra.status %}<span class="project-status">{{ p.extra.status }}</span>{% endif %}
+                    </a>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section class="home-section now-section">
+                <h2 class="section-label">Now</h2>
+                <p>AI Rat Colony を整理しながら、creature-engine と lens engine を並行して進めています。</p>
             </section>
 
             <section class="home-section connect-section">
                 <h2 class="section-label">Connect</h2>
                 <p>hello [at] midorikawa.me</p>
             </section>
-
         </main>
     </body>
 </html>

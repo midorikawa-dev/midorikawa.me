@@ -36,8 +36,8 @@
     if (label === "Writing") {
       link.setAttribute("href", preferred === "en" ? "/en/research/" : "/research/");
     }
-    if (label === "Log") {
-      link.setAttribute("href", preferred === "en" ? "/en/log/" : "/log/");
+    if (label === "About") {
+      link.setAttribute("href", preferred === "en" ? "/en/about/" : "/about/");
     }
   });
 

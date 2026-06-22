@@ -1,0 +1,39 @@
+{% import "macros.html" as macros %}
+{% set is_en = section.path is starting_with("/en/") %}
+<!doctype html>
+<html lang="{% if is_en %}en{% else %}ja{% endif %}">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{{ section.title }} — {{ config.title }}</title>
+        {% if is_en %}
+        <link rel="alternate" hreflang="en" href="{{ section.permalink }}" />
+        <link rel="alternate" hreflang="ja" href="{{ config.base_url }}/about/" />
+        {% else %}
+        <link rel="alternate" hreflang="ja" href="{{ section.permalink }}" />
+        <link rel="alternate" hreflang="en" href="{{ config.base_url }}/en/about/" />
+        {% endif %}
+        {{ macros::favicon_links() }}
+        {{ macros::font_links() }}
+        <link rel="stylesheet" href="{{ get_url(path='css/style.css', cachebust=true) }}" />
+    </head>
+    <body>
+        <main class="article-wrap">
+            {% if is_en %}
+                {{ macros::site_header(lang="en", jp_url="/about/", en_url="/en/about/") }}
+            {% else %}
+                {{ macros::site_header(lang="ja", jp_url="/about/", en_url="/en/about/") }}
+            {% endif %}
+
+            <article class="article">
+                <header class="article-header">
+                    <h1>{{ section.title }}</h1>
+                </header>
+
+                <div class="article-body">
+                    {{ section.content | safe }}
+                </div>
+            </article>
+        </main>
+    </body>
+</html>

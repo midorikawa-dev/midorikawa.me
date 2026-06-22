@@ -1,6 +1,6 @@
 {% import "macros.html" as macros %}
 <!doctype html>
-<html lang="ja">
+<html lang="{% if section.path is starting_with('/en/') %}en{% else %}ja{% endif %}">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,6 +20,64 @@
         <main class="home-wrap">
             {{ macros::site_header(lang=section_lang, jp_url=sec_jp_url, en_url=sec_en_url) }}
 
+            {% if section.path == "/research/" or section.path == "/en/research/" %}
+            <section class="home-section">
+                <h1 class="section-label">AI Rat Colony</h1>
+                {% if section_lang == "en" %}
+                <p class="section-intro">
+                    A small artificial-life colony for studying collapse, communication, cooperation, and culture.
+                </p>
+                {% else %}
+                <p class="section-intro">
+                    崩壊、伝達、協力、文化を、小さな人工生命の群れで調べるシリーズ。
+                </p>
+                {% endif %}
+                <div class="post-list">
+                    {% for page in section.pages %}
+                    {% if page.slug is not starting_with("a") %}
+                    <a class="post-row" href="{{ page.path }}">
+                        <span class="post-main">
+                            <span class="post-title">{{ macros::numbered_title(title=page.title) }}</span>
+                        </span>
+                        {% if page.date %}
+                        <time>
+                            {% if section_lang == "en" %}
+                                {{ page.date | date(format="%B %d, %Y") }}
+                            {% else %}
+                                {{ page.date | date(format="%Y-%m-%d") }}
+                            {% endif %}
+                        </time>
+                        {% endif %}
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section class="home-section">
+                <h2 class="section-label">{% if section_lang == "en" %}Appendix{% else %}補遺{% endif %}</h2>
+                <div class="post-list">
+                    {% for page in section.pages %}
+                    {% if page.slug is starting_with("a") %}
+                    <a class="post-row" href="{{ page.path }}">
+                        <span class="post-main">
+                            <span class="post-title">{{ macros::numbered_title(title=page.title) }}</span>
+                        </span>
+                        {% if page.date %}
+                        <time>
+                            {% if section_lang == "en" %}
+                                {{ page.date | date(format="%B %d, %Y") }}
+                            {% else %}
+                                {{ page.date | date(format="%Y-%m-%d") }}
+                            {% endif %}
+                        </time>
+                        {% endif %}
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </section>
+            {% else %}
             <section class="home-section">
                 <h1 class="section-label">{{ section.title }}</h1>
                 <div class="post-list">
@@ -28,11 +86,12 @@
                         <span class="post-main">
                             <span class="post-title">{{ macros::numbered_title(title=page.title) }}</span>
                         </span>
-                        <time>{{ page.date | date(format="%B %d, %Y") }}</time>
+                        {% if page.date %}<time>{{ page.date | date(format="%B %d, %Y") }}</time>{% endif %}
                     </a>
                     {% endfor %}
                 </div>
             </section>
+            {% endif %}
         </main>
     </body>
 </html>
