@@ -2,6 +2,7 @@
 title = "creature-engine"
 description = "A homemade artificial-life engine (Rust) that moves creatures through procedural motion and learning."
 weight = 1
+draft = true
 [extra]
 lang = "en"
 status = "In progress"

@@ -2,6 +2,7 @@
 title = "creature-engine"
 description = "手続き的な動きと学習で生き物を動かす、自作の人工生命エンジン（Rust）。"
 weight = 1
+draft = true
 [extra]
 lang = "jp"
 status = "開発中"
