@@ -259,20 +259,9 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
 
 /* Home hub */
 
-.home-identity {
-  max-width: 38rem;
-}
-
-.home-name {
-  color: var(--text);
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.5;
-}
-
 .home-intro {
   max-width: 34rem;
-  margin-top: 18px;
+  margin-top: 14px;
   color: var(--text-soft);
   font-size: 17px;
   line-height: 1.72;
