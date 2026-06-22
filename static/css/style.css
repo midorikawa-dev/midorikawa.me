@@ -14,10 +14,6 @@
   --line: rgba(232, 232, 232, 0.11);
   --line-strong: rgba(232, 232, 232, 0.2);
   --accent: #e8e8e8;
-  --accent-blue: #d6d6d6;
-  --accent-green: #d6d6d6;
-  --brand-blue: rgba(232, 232, 232, 0.82);
-  --brand-green: rgba(232, 232, 232, 0.82);
   --accent-soft: rgba(232, 232, 232, 0.12);
   --font-sans: "Inter", "Hiragino Sans", "Yu Gothic", "Yu Gothic UI", "Noto Sans JP", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, "Cascadia Code", Menlo, Consolas, monospace;
@@ -356,9 +352,10 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
   transition: color 0.16s ease;
 }
 
-.home-link-title .title-text {
+.home-link-title .title-text,
+.post-title .title-text {
   text-decoration: underline;
-  text-decoration-color: rgba(211, 205, 226, 0.28);
+  text-decoration-color: rgba(232, 232, 232, 0.28);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.15em;
   transition: color 0.16s ease, text-decoration-color 0.16s ease;
@@ -367,7 +364,7 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
 .home-link-title .title-number,
 .post-title .title-number {
   text-decoration: underline;
-  text-decoration-color: rgba(211, 205, 226, 0.28);
+  text-decoration-color: rgba(232, 232, 232, 0.28);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.15em;
   transition: text-decoration-color 0.16s ease;
@@ -385,13 +382,14 @@ html:not([data-lang-preference="en"]) [data-lang-row="en"] {
   color: var(--text);
 }
 
-.home-link:hover .home-link-title .title-text {
-  text-decoration-color: rgba(211, 205, 226, 0.68);
+.home-link:hover .home-link-title .title-text,
+.post-row:hover .post-title .title-text {
+  text-decoration-color: rgba(232, 232, 232, 0.58);
 }
 
 .home-link:hover .home-link-title .title-number,
 .post-row:hover .post-title .title-number {
-  text-decoration-color: rgba(211, 205, 226, 0.68);
+  text-decoration-color: rgba(232, 232, 232, 0.58);
 }
 
 .now-section {
