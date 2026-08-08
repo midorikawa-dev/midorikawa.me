@@ -11,6 +11,7 @@
     <body>
         {% set projects = get_section(path="projects/_index.md") %}
         {% set research = get_section(path="research/_index.md") %}
+        {% set notes = get_section(path="notes/_index.md") %}
         <main class="home-wrap">
             {{ macros::site_header(lang="ja", jp_url="/", en_url="/en/") }}
 
@@ -54,6 +55,27 @@
                     {% endfor %}
                 </div>
             </section>
+
+            {% if notes.pages %}
+            <section class="home-section">
+                <div class="section-head">
+                    <h2 class="section-label">Notes</h2>
+                    <a class="view-all" href="/notes/">All notes</a>
+                </div>
+                <div class="post-list">
+                    {% for page in notes.pages %}
+                    {% if loop.index <= 5 %}
+                    <a class="post-row" href="{{ page.path }}">
+                        <span class="post-main">
+                            <span class="post-title">{{ page.title }}</span>
+                        </span>
+                        {% if page.date %}<time>{{ page.date | date(format="%Y-%m-%d") }}</time>{% endif %}
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </section>
+            {% endif %}
 
             <section class="home-section">
                 <div class="section-head">

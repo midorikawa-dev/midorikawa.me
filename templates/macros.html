@@ -23,6 +23,7 @@
         <nav class="site-nav-links">
             <a href="{% if lang == "en" %}/en/projects/{% else %}/projects/{% endif %}">Projects</a>
             <a href="{% if lang == "en" %}/en/research/{% else %}/research/{% endif %}">Writing</a>
+            <a href="{% if lang == "en" %}/en/notes/{% else %}/notes/{% endif %}">Notes</a>
             <span class="header-language">
                 <a href="{{ jp_href }}" data-language-choice="ja" class="{% if lang != "en" %}is-active{% endif %}">JP</a>
                 <a href="{{ en_href }}" data-language-choice="en" class="{% if lang == "en" %}is-active{% endif %}">EN</a>

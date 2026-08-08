@@ -86,7 +86,15 @@
                         <span class="post-main">
                             <span class="post-title">{{ macros::numbered_title(title=page.title) }}</span>
                         </span>
-                        {% if page.date %}<time>{{ page.date | date(format="%B %d, %Y") }}</time>{% endif %}
+                        {% if page.date %}
+                        <time>
+                            {% if section_lang == "en" %}
+                                {{ page.date | date(format="%B %d, %Y") }}
+                            {% else %}
+                                {{ page.date | date(format="%Y-%m-%d") }}
+                            {% endif %}
+                        </time>
+                        {% endif %}
                     </a>
                     {% endfor %}
                 </div>
