@@ -1,1 +1,0 @@
-forgejo-to-pages pipeline test
